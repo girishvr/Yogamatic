@@ -1,19 +1,21 @@
 package in.yoska.yogamatic;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
+
+import in.yoska.yogamatic.ui.login.SignUpActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SignUpTwoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SignUpTwoFragment extends Fragment {
+public class SignUpTwoFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,11 +56,24 @@ public class SignUpTwoFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up_two, container, false);
+
+        view = inflater.inflate(R.layout.fragment_sign_up_two, container, false);
+        Button signUpBtn = (Button)view.findViewById(R.id.btn_register);
+
+        signUpBtn.setOnClickListener(this);
+
+        return view;
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        SignUpActivity yourActivity = (SignUpActivity) getActivity();
+        yourActivity.registrationComplete();
     }
 }
