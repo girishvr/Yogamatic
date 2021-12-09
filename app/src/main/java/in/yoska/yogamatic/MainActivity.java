@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             isLoggedIn = true;
             showLoginSignUp();
         }
-        
+
 
         String [] yogmudra = getResources().getStringArray(R.array.YogMudra);
         String [] remedies = getResources().getStringArray(R.array.Remedies);
