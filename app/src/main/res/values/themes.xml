@@ -19,6 +19,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="WindowAnimationStyle">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+        <item name="android:windowActivityTransitions">@android:anim/linear_interpolator</item>
+    </style>
+
     <style name="Theme.Yogamatic.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Yogamatic.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name ="YogMudra">
+
+        <item>Asthma</item>
+        <item>Back Pain</item>
+        <item>Cancer</item>
+        <item>Diabetes</item>
+        <item>Eyesight</item>
+        <item>Kidney Stone</item>
+        <item>Normal Yoga</item>
+        <item>Stress Relief</item>
+        <item>Thyroid</item>
+        <item>Weight Gain</item>
+        <item>Weight Loss</item>
+    </string-array>
+
+    <string-array name ="Remedies">
+
+        <item>Asthma</item>
+        <item>Back Pain</item>
+        <item>Cancer</item>
+        <item>Diabetes</item>
+        <item>Eyesight</item>
+        <item>Kidney stones</item>
+        <item>Stress relief</item>
+        <item>Thyroid</item>
+        <item>Weight Gain</item>
+        <item>Weight Loss</item>
+    </string-array>
+
+
+</resources>

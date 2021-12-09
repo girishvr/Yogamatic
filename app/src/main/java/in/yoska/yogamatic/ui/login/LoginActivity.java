@@ -1,6 +1,7 @@
 package in.yoska.yogamatic.ui.login;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -45,7 +46,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent signUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(signUpIntent);
+//                startActivity(signUpIntent);
+                startActivity(signUpIntent,
+                        ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle());
+
+
             }
         });
 
