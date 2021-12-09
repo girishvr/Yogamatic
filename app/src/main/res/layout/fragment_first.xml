@@ -7,22 +7,66 @@
     tools:context=".FirstFragment">
 
     <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_diet"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="100dp"
+        android:text="@string/diet"
+        app:layout_constraintBottom_toTopOf="@+id/button_remedies"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_first" />
+
+    <Button
+        android:id="@+id/button_remedies"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/remedies"
+        app:layout_constraintBottom_toTopOf="@+id/button_mudras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_diet" />
+
+    <Button
+        android:id="@+id/button_mudras"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/yog_mudras"
+        app:layout_constraintBottom_toTopOf="@+id/button_asana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_remedies" />
+
+    <Button
+        android:id="@+id/button_asana"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/yog_asanas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_mudras" />
 
     <TextView
         android:id="@+id/textview_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/textview_bmi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textview_bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bmi_text"
+        app:layout_constraintBottom_toTopOf="@id/button_diet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_first" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,12 @@
 package in.yoska.yogamatic;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
@@ -65,6 +68,13 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
         view = inflater.inflate(R.layout.fragment_sign_up_two, container, false);
         Button signUpBtn = (Button)view.findViewById(R.id.btn_register);
 
+
+        String [] remedies = getResources().getStringArray(R.array.Remedies);
+        ArrayAdapter <String> adaptor = new ArrayAdapter<String>(view.getContext(), android.R.layout.select_dialog_item, remedies);
+        AutoCompleteTextView ailmentTextView = (AutoCompleteTextView)view.findViewById(R.id.et_ailment);
+        ailmentTextView.setThreshold(0);
+        ailmentTextView.setAdapter(adaptor);
+        ailmentTextView.setTextColor(Color.DKGRAY);
         signUpBtn.setOnClickListener(this);
 
         return view;
@@ -75,5 +85,6 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         SignUpActivity yourActivity = (SignUpActivity) getActivity();
         yourActivity.registrationComplete();
+
     }
 }

@@ -36,6 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void registrationComplete () {
+
+        //TODO: set this properly
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.setHeight((float)1.5);
+        userData.setWeight((float)100.0);
+
         //UserObject object
         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
     }

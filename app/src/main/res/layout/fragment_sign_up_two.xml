@@ -42,7 +42,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="textPersonName"
+            android:inputType="date"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
@@ -55,7 +55,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="textEmailAddress"
+            android:inputType="numberDecimal"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
@@ -68,11 +68,11 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:padding="15dp"
-            android:inputType="textPassword"
+            android:inputType="numberDecimal"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/et_ailment"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -80,7 +80,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:padding="15dp"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 

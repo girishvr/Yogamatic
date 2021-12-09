@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import in.yoska.yogamatic.ui.login.LoginActivity;
+import in.yoska.yogamatic.ui.login.UserObject;
 
 public class MainActivity extends AppCompatActivity {
     boolean isLoggedIn = false;
@@ -22,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //TODO: for testing
+        isLoggedIn = true;
+
+        //check log in and then load the respective views
         if (isLoggedIn){
             setDashBoardUI();
         }else{
@@ -29,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             showLoginSignUp();
         }
 
-
+        // fetch list
         String [] yogmudra = getResources().getStringArray(R.array.YogMudra);
         String [] remedies = getResources().getStringArray(R.array.Remedies);
     }
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setDashBoardUI(){
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +58,48 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void didSelectButton(View view){
+        int btnIndex = 0;
+        switch (view.getId()){
+            case R.id.button_diet:
+                btnIndex = 0;
+                break;
+            case R.id.button_remedies:
+                btnIndex = 1;
+                break;
+            case R.id.button_asana:
+                btnIndex = 2;
+                break;
+            case R.id.button_mudras:
+                btnIndex = 3;
+                break;
+            default:
+                btnIndex = 0;
+        }
+
+        selectedButton(btnIndex);
+
+    }
+    public void selectedButton(int buttonIndx){
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.setSelectedButtonIndex(buttonIndx);
+    }
+    public String getUserName(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return userData.getName();
+    }
+    //TODO: uncomment when real data available
+    public float getUserWeight(){
+        final UserObject userData = (UserObject) getApplicationContext();
+//        return userData.getWeight();
+        return (float)100.0;
+
+    }
+    public float getUserHeight(){
+        final UserObject userData = (UserObject) getApplicationContext();
+//        return userData.getHeight();
+        return (float)1.6;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -70,5 +120,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setSecondFragmentTextView(TextView tv){
+        final UserObject userData = (UserObject) getApplicationContext();
+        
+        int btnIndex = userData.getSelectedButtonIndex();
+        
+        String [] buttonLabelArray = {"Diet", "Remedies","Yog Asana", "Yog Mudra"};
+      
+        tv.setText(buttonLabelArray[btnIndex]);
+
+
     }
 }
