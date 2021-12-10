@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,11 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
+        imageView.setImageResource(R.drawable.fish);
+
+
         TextView textView = (TextView) view.findViewById(R.id.textview_second);
         MainActivity yourActivity = (MainActivity) getActivity();
         yourActivity.setSecondFragmentTextView(textView);
