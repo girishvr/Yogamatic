@@ -82,6 +82,29 @@ public class MainActivity extends AppCompatActivity {
     public void selectedButton(int buttonIndx){
         final UserObject userData = (UserObject) getApplicationContext();
         userData.setSelectedButtonIndex(buttonIndx);
+        //load a list view
+        loadListView(buttonIndx);
+    }
+    public void loadListView(int indx){
+        switch (indx){
+            case 0:
+//                btnIndex = 0;
+                break;
+            case 1:
+//                btnIndex = 1;
+                break;
+            case 2:
+//                btnIndex = 2;
+                break;
+            case 3:
+//                btnIndex = 3;
+                break;
+            default:
+//                btnIndex = 0;
+        }
+
+        Intent ailmentIntent = new Intent(this, AilmentListActivity.class);
+        startActivity(ailmentIntent);
     }
     public String getUserName(){
         final UserObject userData = (UserObject) getApplicationContext();

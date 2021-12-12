@@ -52,8 +52,8 @@ public class FirstFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 yourActivity.didSelectButton(view);
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
 
             }
         });
@@ -61,24 +61,24 @@ public class FirstFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 yourActivity.didSelectButton(view);
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
         view.findViewById(R.id.button_asana).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 yourActivity.didSelectButton(view);
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
         view.findViewById(R.id.button_mudras).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 yourActivity.didSelectButton(view);
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(FirstFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
     }

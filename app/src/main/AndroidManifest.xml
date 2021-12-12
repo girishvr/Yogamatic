@@ -10,9 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yogamatic">
-        <activity android:name=".ui.login.SignUpActivity"
-            android:theme="@style/Theme.Yogamatic.NoActionBar"/>
-
+        <activity android:name=".AilmentListActivity"
+            android:theme="@style/Theme.Yogamatic.NoActionBar" />
+        <activity
+            android:name=".ui.login.SignUpActivity"
+            android:theme="@style/Theme.Yogamatic.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
@@ -26,8 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
