@@ -35,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
             showLoginSignUp();
         }
 
-        // fetch list
-        String [] yogmudra = getResources().getStringArray(R.array.YogMudra);
-        String [] remedies = getResources().getStringArray(R.array.Remedies);
     }
 
     void showLoginSignUp(){

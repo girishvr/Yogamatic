@@ -46,6 +46,6 @@
     <string name="weight">Weight</string>
     <string name="ailment">Ailment</string>
     <string name="register">Register</string>
-
+    <string name="description_text">Description Text</string>
 
 </resources>
