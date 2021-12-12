@@ -1,6 +1,9 @@
 package in.yoska.yogamatic;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,20 +23,31 @@ public class AilmentListActivity extends AppCompatActivity {
         // fetch list
         String [] yogmudra = getResources().getStringArray(R.array.Remedies);
         String [] remedies = getResources().getStringArray(R.array.Remedies);
-        int [] imageIds = {R.drawable.fruits_and_veggies,
-                R.drawable.carrot,
-                R.drawable.fruits_and_veggies,
-                R.drawable.bananas_and_milk,
-                R.drawable.fruits_and_veggies,
-                R.drawable.fish,
-                R.drawable.avocado,
-                R.drawable.fruits_and_veggies,
-                R.drawable.carrots,
-                R.drawable.fruits};
+        int [] imageIds = {R.drawable.diet_asthama_fruits,
+                R.drawable.diet_cancer_beans,
+                R.drawable.diet_stress_avocado,
+                R.drawable.diet_asthama_fruits,
+                R.drawable.remedies_asthma_adulsa,
+                R.drawable.diet_asthama_fruits,
+                R.drawable.diet_asthama_nuts,
+                R.drawable.diet_stress_avocado,
+                R.drawable.diet_asthama_fruits,
+                R.drawable.diet_asthama_nuts};
 
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);
         CustomListView listViewAdapter = new CustomListView(this,yogmudra,imageIds,remedies);
         listAilments.setAdapter(listViewAdapter);
+
+        listAilments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Log.e("Clicked ", "Clicked - "+String.valueOf(position));
+                Log.e("Clicked ", "Clicked - "+String.valueOf(id));
+\
+            }
+        });
+
     }
 }

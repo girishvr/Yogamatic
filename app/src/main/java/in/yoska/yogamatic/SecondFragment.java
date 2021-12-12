@@ -27,7 +27,7 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
-        imageView.setImageResource(R.drawable.chocolate);
+        imageView.setImageResource(R.drawable.diet_eyesight_fish);
 
 
         TextView textView = (TextView) view.findViewById(R.id.textview_second);

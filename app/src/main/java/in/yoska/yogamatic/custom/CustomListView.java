@@ -1,15 +1,19 @@
 package in.yoska.yogamatic.custom;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.squareup.picasso.Picasso;
 
 import in.yoska.yogamatic.R;
 
@@ -43,7 +47,21 @@ public class CustomListView extends ArrayAdapter<String> {
         }
 
         viewHolder.textAilName.setText(ailmentName[position]);
-        viewHolder.imageVw.setImageResource(imageName[position]);
+//        viewHolder.imageVw.setImageResource(imageName[position]);
+        // with picasso and resource image
+//        Picasso.with(context).load(R.drawable.drawableName).into(imageView);
+        //Picasso.get().load(uri_).transform(new RoundedCornersTransformation(10,10))
+
+        // picasso image load youttube thumbnail
+        String videoUrl = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
+        Uri uri = Uri.parse(videoUrl);
+        String videoID = uri.getQueryParameter("v");
+        String url = "http://img.youtube.com/vi/" + videoID + "/0.jpg";
+
+        final Uri uri_ = Uri.parse(url);
+        // rounded corners
+        Picasso.get().load(uri_).transform(new RoundedCornersTransformation(10,10)).into(viewHolder.imageVw);
+
         viewHolder.ailDescription.setText(descriptionText[position]);
 
         return conView;
@@ -59,4 +77,5 @@ public class CustomListView extends ArrayAdapter<String> {
             ailDescription = (TextView) view.findViewById(R.id.text_description);
         }
     }
+
 }
