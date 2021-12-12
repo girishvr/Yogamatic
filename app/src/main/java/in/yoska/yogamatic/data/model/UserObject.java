@@ -1,4 +1,4 @@
-package in.yoska.yogamatic.ui.login;
+package in.yoska.yogamatic.data.model;
 
 import android.app.Application;
 

@@ -12,7 +12,10 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
+
 import in.yoska.yogamatic.custom.CustomListView;
+import in.yoska.yogamatic.custom.ReadExcelSheet;
 
 
 public class AilmentListActivity extends AppCompatActivity {
@@ -40,7 +43,14 @@ public class AilmentListActivity extends AppCompatActivity {
                 R.drawable.diet_asthama_fruits,
                 R.drawable.diet_asthama_nuts};
 
-        
+
+        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
+        readExcelSheet.setFileName("yogmatic_data.xls");
+        try{
+            readExcelSheet.readSheet(AilmentListActivity.this);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);

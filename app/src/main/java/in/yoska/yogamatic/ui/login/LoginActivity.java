@@ -22,6 +22,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import in.yoska.yogamatic.R;
+import in.yoska.yogamatic.data.model.UserObject;
 
 public class LoginActivity extends AppCompatActivity {
 

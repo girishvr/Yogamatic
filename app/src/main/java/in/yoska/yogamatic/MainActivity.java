@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import in.yoska.yogamatic.ui.login.LoginActivity;
-import in.yoska.yogamatic.ui.login.UserObject;
+import in.yoska.yogamatic.data.model.UserObject;
 
 public class MainActivity extends AppCompatActivity {
     boolean isLoggedIn = false;

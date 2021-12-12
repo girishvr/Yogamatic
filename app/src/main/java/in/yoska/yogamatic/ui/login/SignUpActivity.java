@@ -16,6 +16,7 @@ import in.yoska.yogamatic.MainActivity;
 import in.yoska.yogamatic.R;
 import in.yoska.yogamatic.SignUpOneFragment;
 import in.yoska.yogamatic.SignUpTwoFragment;
+import in.yoska.yogamatic.data.model.UserObject;
 
 public class SignUpActivity extends AppCompatActivity {
 
