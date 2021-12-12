@@ -40,6 +40,8 @@ public class AilmentListActivity extends AppCompatActivity {
                 R.drawable.diet_asthama_fruits,
                 R.drawable.diet_asthama_nuts};
 
+        
+
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);
         CustomListView listViewAdapter = new CustomListView(this,yogmudra,imageIds,remedies);
@@ -72,6 +74,7 @@ public class AilmentListActivity extends AppCompatActivity {
             context.startActivity(webIntent);
         }
     }
+
 
 
 
