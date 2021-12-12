@@ -1,5 +1,9 @@
 package in.yoska.yogamatic;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,9 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import in.yoska.yogamatic.custom.CustomListView;
 
+
 public class AilmentListActivity extends AppCompatActivity {
 
     ListView listAilments;
+    String FILE_PATH = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
 
 
     @Override
@@ -45,9 +51,28 @@ public class AilmentListActivity extends AppCompatActivity {
                                     int position, long id) {
                 Log.e("Clicked ", "Clicked - "+String.valueOf(position));
                 Log.e("Clicked ", "Clicked - "+String.valueOf(id));
-\
+
+                watchYoutubeVideo(AilmentListActivity.this,"zpxHe8NxLmI");
+//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FILE_PATH)));
+                Log.i("Video", "Video Playing....");
+
             }
+
+
         });
 
     }
+    public static void watchYoutubeVideo(Context context, String id){
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + id));
+        try {
+            context.startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+            context.startActivity(webIntent);
+        }
+    }
+
+
+
 }
