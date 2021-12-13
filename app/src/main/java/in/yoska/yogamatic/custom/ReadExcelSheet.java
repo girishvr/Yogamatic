@@ -10,11 +10,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+
+import in.yoska.yogamatic.data.model.YogData;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,21 +31,11 @@ public class ReadExcelSheet {
     public void readSheet(Context context) throws IOException {
 
         ArrayList importedExcelData = new ArrayList<>();
-
-//        File file = new File(context.getExternalFilesDir(null), fileName);
-        File file = new File(fileName);
         InputStream fileInputStream = null;
 
         Workbook workbook;
         try {
             AssetManager assetMgr = context.getAssets();
-
-//            AssetFileDescriptor assetFileDescriptor = context.getAssets().openFd(fileName);
-//            FileDescriptor fileDescriptor = assetFileDescriptor.getFileDescriptor();
-//            FileInputStream stream = new FileInputStream(fileDescriptor);
-
-//            OPCPackage pkg = OPCPackage.open(new File(fileName));
-//            XSSFWorkbook wb = new XSSFWorkbook(pkg);
 
             fileInputStream = assetMgr.open(fileName);
             workbook = new HSSFWorkbook(fileInputStream);
@@ -53,27 +45,33 @@ public class ReadExcelSheet {
 
             // Iterate through each row
             for (Row row : sheet) {
-                if (row.getRowNum() > 0) {
-                    // Iterate through all the cells in a row (Excluding header row)
+                int index = 0;
+                List<String> rowDataList = new ArrayList<>();
+
+                if (row.getRowNum() > -1) {
+                    // Iterate through all the cells in a row
                     Iterator<Cell> cellIterator = row.cellIterator();
+                    //inside a row, one cell at a time
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-
                         // Check cell type and format accordingly
-                        switch (cell.getCellType()) {
-                            case Cell.CELL_TYPE_NUMERIC:
-                                // Print cell value
-                                System.out.println(cell.getNumericCellValue());
-                                break;
 
-                            case Cell.CELL_TYPE_STRING:
-                                System.out.println(cell.getStringCellValue());
-                                break;
+                        if(cell.getCellType() == Cell.CELL_TYPE_STRING){
+                            rowDataList.add(index, cell.getStringCellValue());
+                            index++;
                         }
                     }
-                }
-            }
+                    // Adding cells data to object
+                    if (rowDataList.size() == 5) {
+                        importedExcelData.add(getYogaDataObject(rowDataList));
+                    }else{
+                        System.out.println("Error! Row data - " + String.valueOf(index));
+                    }
 
+                }
+
+            }
+            System.out.println(importedExcelData.toString());
         } catch (IOException e) {
             Log.e(TAG, "Error Reading Exception: ", e);
         } catch (Exception e) {
@@ -87,6 +85,19 @@ public class ReadExcelSheet {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public YogData getYogaDataObject(List<String> dataList){
+
+        YogData dataObject = new YogData();
+        dataObject.setCategory(dataList.get(0));
+        dataObject.setAilment(dataList.get(1));
+        dataObject.setType(dataList.get(2));
+        dataObject.setImageName(dataList.get(3));
+        dataObject.setDescription(dataList.get(4));
+
+        return dataObject;
+
     }
 
 }

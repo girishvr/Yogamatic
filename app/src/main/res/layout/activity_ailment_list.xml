@@ -13,5 +13,5 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="237dp"
         tools:layout_editor_absoluteY="397dp"
-        tools:listitem="@layout/layout_listview" />
+        tools:listitem="@layout/ailment_list_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

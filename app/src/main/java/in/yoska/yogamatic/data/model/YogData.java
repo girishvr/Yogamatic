@@ -7,7 +7,7 @@ public class YogData {
     String description;
     String type;
 
-    YogData(){
+    public YogData(){
         this.type = "image";//"video"
     }
     public String getAilment() {

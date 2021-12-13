@@ -12,10 +12,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
-
-import in.yoska.yogamatic.custom.CustomListView;
-import in.yoska.yogamatic.custom.ReadExcelSheet;
+import in.yoska.yogamatic.custom.AilmentListView;
 
 
 public class AilmentListActivity extends AppCompatActivity {
@@ -43,18 +40,19 @@ public class AilmentListActivity extends AppCompatActivity {
                 R.drawable.diet_asthama_fruits,
                 R.drawable.diet_asthama_nuts};
 
-
-        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
-        readExcelSheet.setFileName("yogmatic_data.xls");
-        try{
-            readExcelSheet.readSheet(AilmentListActivity.this);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+            // working model
+//        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
+//        readExcelSheet.setFileName("yogmatic_data.xls");
+//        try{
+//            readExcelSheet.readSheet(AilmentListActivity.this);
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
 
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);
-        CustomListView listViewAdapter = new CustomListView(this,yogmudra,imageIds,remedies);
+
+        AilmentListView listViewAdapter = new AilmentListView(this,yogmudra);
         listAilments.setAdapter(listViewAdapter);
 
         listAilments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,9 +62,9 @@ public class AilmentListActivity extends AppCompatActivity {
                 Log.e("Clicked ", "Clicked - "+String.valueOf(position));
                 Log.e("Clicked ", "Clicked - "+String.valueOf(id));
 
-                watchYoutubeVideo(AilmentListActivity.this,"zpxHe8NxLmI");
-//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FILE_PATH)));
-                Log.i("Video", "Video Playing....");
+//                watchYoutubeVideo(AilmentListActivity.this,"zpxHe8NxLmI");
+////                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FILE_PATH)));
+//                Log.i("Video", "Video Playing....");
 
             }
 
