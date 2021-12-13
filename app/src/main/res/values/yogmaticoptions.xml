@@ -1,139 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name ="YogMudra">
+    <string-array name ="Category">
 
+        <item>Diet</item>
+        <item>Remedies</item>
+        <item>Yogmudras</item>
+        <item>Yogasana</item>
+
+    </string-array>
+
+    <string-array name ="Ailments">
         <item>Asthma</item>
         <item>Back Pain</item>
         <item>Cancer</item>
         <item>Diabetes</item>
         <item>Eyesight</item>
         <item>Kidney Stone</item>
-        <item>Normal Yoga</item>
         <item>Stress Relief</item>
         <item>Thyroid</item>
         <item>Weight Gain</item>
         <item>Weight Loss</item>
+        <item>Normal</item>
     </string-array>
-
-    <string-array name ="Remedies">
-
-        <item>Asthma</item>
-        <item>Back Pain</item>
-        <item>Cancer</item>
-        <item>Diabetes</item>
-        <item>Eyesight</item>
-        <item>Kidney stones</item>
-        <item>Asthma</item>
-        <item>Back Pain</item>
-        <item>Cancer</item>
-        <item>Diabetes</item>
-        <item>Eyesight</item>
-        <item>Kidney stones</item>
-        <item>Stress relief</item>
-        <item>Thyroid</item>
-        <item>Weight Gain</item>
-        <item>Weight Loss</item>
-    </string-array>
-
-    <string-array name ="Diet_Asthama">
-
-        <item>fish.png</item>
-        <item>Asthama.docx</item>
-        <item>Fruits and Veggies.png</item>
-        <item>Mediterranean Diet.png</item>
-        <item>Nuts and Seeds.png</item>
-        <item>Tomatoes.png</item>
-        <item>Vitamin D.png</item>
-    </string-array>
-
-    <string-array name ="Diet_Back_Pain">
-
-        <item>BACK PAIN.docx</item>
-    </string-array>
-
-    <string-array name ="Diet_Cancer">
-
-        <item>Beans and Legumes.png</item>
-        <item>Cancer.docx</item>
-        <item>flaxseeds.png</item>
-        <item>Fruits.png</item>
-        <item>Garlic.png</item>
-        <item>Nuts.png</item>
-        <item>vegetables.png</item>
-
-    </string-array>
-
-    <string-array name ="Diet_Diabetes">
-
-        <item>DIABETES.docx</item>
-        <item>fruits2.jfif</item>
-        <item>Grains.jfif</item>
-        <item>Protein.jfif</item>
-        <item>vegetables2.jfif</item>
-
-    </string-array>
-
-    <string-array name ="Diet_Eyesight">
-
-        <item>Carrot.png</item>
-        <item>eggs.png</item>
-        <item>Eyesight.docx</item>
-        <item>Fish2.png</item>
-        <item>Nuts and legumes.png</item>
-        <item>Seeds.png</item>
-        <item>Sweet potatoes.png</item>
-    </string-array>
-
-
-    <string-array name ="Diet_Kidney_Stone">
-        <item>diet.png</item>
-        <item>KIDNEY STONE.docx</item>
-    </string-array>
-
-    <string-array name ="Diet_Stress_Relief">
-
-
-        <item>Avocado.png</item>
-        <item>Carrots.png</item>
-        <item>Chocolate.png</item>
-        <item>STRESS RELIEF.docx</item>
-        <item>Swiss Chard.png</item>
-        <item>Tea.png</item>
-        <item>Yogurt.png</item>
-    </string-array>
-
-
-
-    <string-array name ="Diet_Thyroid">
-
-        <item>THYROID.docx</item>
-    </string-array>
-
-
-
-    <string-array name ="Diet_Weight_Gain">
-
-        <item>WEIGHT GAIN.docx</item>
-    </string-array>
-
-
-    <string-array name ="Diet_Weight_Loss">
-
-        <item>Bananas and milk.png</item>
-        <item>fruits and vegetables.jfif</item>
-        <item>fruits.jpg</item>
-        <item>Meat.png</item>
-        <item>Meat2.png</item>
-        <item>Vegetable and fruit juice.jfif</item>
-        <item>vegetables.jpg</item>
-        <item>WEIGHT LOSS.docx</item>
-    </string-array>
-
-
-
-
-
-
 
 </resources>

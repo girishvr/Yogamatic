@@ -2,6 +2,7 @@ package in.yoska.yogamatic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,11 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import in.yoska.yogamatic.ui.login.LoginActivity;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import in.yoska.yogamatic.custom.ReadExcelSheet;
 import in.yoska.yogamatic.data.model.UserObject;
+import in.yoska.yogamatic.data.model.YogData;
+import in.yoska.yogamatic.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     boolean isLoggedIn = false;
+    ArrayList<YogData> importedExcelData = new ArrayList<YogData>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         //check log in and then load the respective views
         if (isLoggedIn){
+            fetchExcelSheetData();
             setDashBoardUI();
         }else{
             isLoggedIn = true;
@@ -83,24 +91,26 @@ public class MainActivity extends AppCompatActivity {
         loadListView(buttonIndx);
     }
     public void loadListView(int indx){
+        ArrayList<YogData> filteredData = new ArrayList<YogData>();
         switch (indx){
             case 0:
-//                btnIndex = 0;
+                filteredData = getFilteredExcelData("Diet");
                 break;
             case 1:
-//                btnIndex = 1;
+                filteredData = getFilteredExcelData("Remedies");
                 break;
             case 2:
-//                btnIndex = 2;
+                filteredData = getFilteredExcelData("Yogmudras");
                 break;
             case 3:
-//                btnIndex = 3;
+                filteredData = getFilteredExcelData("Yogasana");
                 break;
             default:
-//                btnIndex = 0;
+                filteredData = getFilteredExcelData("Diet");
         }
 
         Intent ailmentIntent = new Intent(this, AilmentListActivity.class);
+        ailmentIntent.putParcelableArrayListExtra("FILTERED_DATA", (ArrayList<? extends Parcelable>) filteredData);
         startActivity(ailmentIntent);
     }
     public String getUserName(){
@@ -150,6 +160,28 @@ public class MainActivity extends AppCompatActivity {
       
         tv.setText(buttonLabelArray[btnIndex]);
 
+    }
 
+    public void fetchExcelSheetData(){
+        // working model
+        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
+        readExcelSheet.setFileName("yogmatic_data.xls");
+        try{
+            importedExcelData = readExcelSheet.readSheet(MainActivity.this);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public ArrayList<YogData> getFilteredExcelData(String category){
+        ArrayList<YogData> filteredData = new ArrayList<YogData>();
+        for(YogData object : importedExcelData){
+            String objCategory = object.getCategory();
+            if(objCategory.equals(category)){
+                filteredData.add(object);
+            }
+        }
+        return filteredData;
     }
 }

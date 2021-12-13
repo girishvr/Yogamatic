@@ -68,8 +68,7 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
         view = inflater.inflate(R.layout.fragment_sign_up_two, container, false);
         Button signUpBtn = (Button)view.findViewById(R.id.btn_register);
 
-
-        String [] remedies = getResources().getStringArray(R.array.Remedies);
+        String [] remedies = getResources().getStringArray(R.array.Ailments);
         ArrayAdapter <String> adaptor = new ArrayAdapter<String>(view.getContext(), android.R.layout.select_dialog_item, remedies);
         AutoCompleteTextView ailmentTextView = (AutoCompleteTextView)view.findViewById(R.id.et_ailment);
         ailmentTextView.setThreshold(0);

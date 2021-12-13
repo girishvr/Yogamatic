@@ -12,47 +12,31 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 import in.yoska.yogamatic.custom.AilmentListView;
+import in.yoska.yogamatic.data.model.YogData;
 
 
 public class AilmentListActivity extends AppCompatActivity {
 
     ListView listAilments;
     String FILE_PATH = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
-
+    ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ailment_list);
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
         // fetch list
-        String [] yogmudra = getResources().getStringArray(R.array.Remedies);
-        String [] remedies = getResources().getStringArray(R.array.Remedies);
-        int [] imageIds = {R.drawable.diet_asthama_fruits,
-                R.drawable.diet_cancer_beans,
-                R.drawable.diet_stress_avocado,
-                R.drawable.diet_asthama_fruits,
-                R.drawable.remedies_asthma_adulsa,
-                R.drawable.diet_asthama_fruits,
-                R.drawable.diet_asthama_nuts,
-                R.drawable.diet_stress_avocado,
-                R.drawable.diet_asthama_fruits,
-                R.drawable.diet_asthama_nuts};
-
-            // working model
-//        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
-//        readExcelSheet.setFileName("yogmatic_data.xls");
-//        try{
-//            readExcelSheet.readSheet(AilmentListActivity.this);
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-
+        String [] ailmentsList = getResources().getStringArray(R.array.Ailments);
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);
 
-        AilmentListView listViewAdapter = new AilmentListView(this,yogmudra);
+        AilmentListView listViewAdapter = new AilmentListView(this,ailmentsList);
         listAilments.setAdapter(listViewAdapter);
 
         listAilments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -82,8 +66,6 @@ public class AilmentListActivity extends AppCompatActivity {
             context.startActivity(webIntent);
         }
     }
-
-
 
 
 }

@@ -22,15 +22,14 @@ import static android.content.ContentValues.TAG;
 
 public class ReadExcelSheet {
     String fileName;
-    Workbook workbook = new HSSFWorkbook();
 
     public void setFileName(String inputFile){
         this.fileName = inputFile;
     }
 
-    public void readSheet(Context context) throws IOException {
+    public ArrayList<YogData> readSheet(Context context) throws IOException {
 
-        ArrayList importedExcelData = new ArrayList<>();
+        ArrayList<YogData> importedExcelData = new ArrayList<YogData>();
         InputStream fileInputStream = null;
 
         Workbook workbook;
@@ -71,7 +70,9 @@ public class ReadExcelSheet {
                 }
 
             }
-            System.out.println(importedExcelData.toString());
+//            System.out.println(importedExcelData.toString());
+            return importedExcelData;
+
         } catch (IOException e) {
             Log.e(TAG, "Error Reading Exception: ", e);
         } catch (Exception e) {
@@ -85,6 +86,7 @@ public class ReadExcelSheet {
                 ex.printStackTrace();
             }
         }
+        return importedExcelData;
     }
 
     public YogData getYogaDataObject(List<String> dataList){
