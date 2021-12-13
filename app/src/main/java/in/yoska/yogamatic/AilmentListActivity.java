@@ -22,7 +22,6 @@ import in.yoska.yogamatic.data.model.YogData;
 public class AilmentListActivity extends AppCompatActivity {
 
     ListView listAilments;
-    String FILE_PATH = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
     ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
     String [] ailmentsList;
     @Override
@@ -36,7 +35,7 @@ public class AilmentListActivity extends AppCompatActivity {
         }
         // fetch list
         ailmentsList = getResources().getStringArray(R.array.Ailments);
-
+        setTitle("AILMENT");
         listAilments = (ListView) findViewById(R.id.listview_ailment);
 
         AilmentListView listViewAdapter = new AilmentListView(this,ailmentsList);
@@ -48,10 +47,6 @@ public class AilmentListActivity extends AppCompatActivity {
                                     int position, long id) {
                 Log.e("Clicked ", "Clicked - "+String.valueOf(position));
                 loadTheRespectiveActivity(position);
-
-//                watchYoutubeVideo(AilmentListActivity.this,"zpxHe8NxLmI");
-////                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FILE_PATH)));
-//                Log.i("Video", "Video Playing....");
 
             }
 

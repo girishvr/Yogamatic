@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
+        fetchExcelSheetData();
 
         //TODO: for testing
-        isLoggedIn = true;
+//        isLoggedIn = true;
 
         //check log in and then load the respective views
         if (isLoggedIn){
-            fetchExcelSheetData();
             setDashBoardUI();
         }else{
             isLoggedIn = true;

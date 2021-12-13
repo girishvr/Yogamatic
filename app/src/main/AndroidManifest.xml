@@ -15,7 +15,7 @@
             />
         <activity
             android:name=".AilmentListActivity"
-            android:theme="@style/Theme.Yogamatic.NoActionBar" />
+             />
         <activity
             android:name=".ui.login.SignUpActivity"
             android:theme="@style/Theme.Yogamatic.NoActionBar" />

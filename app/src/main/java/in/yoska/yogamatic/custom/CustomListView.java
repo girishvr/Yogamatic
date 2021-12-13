@@ -1,6 +1,7 @@
 package in.yoska.yogamatic.custom;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -45,26 +48,32 @@ public class CustomListView extends ArrayAdapter<YogData> {
         }
 
         viewHolder.textAilName.setText(remedyObject.getAilment());
-        int imageResourceId =  getResourceId(remedyObject.getImageName(), R.drawable.class);
-        System.out.println(String.valueOf(imageResourceId));
-        System.out.println(remedyObject.getImageName());
-        viewHolder.imageVw.setImageResource(imageResourceId);
+        viewHolder.ailDescription.setText(remedyObject.getDescription());
+
+        if(remedyObject.getType().equals("video")){
+            //load thumbnail
+            // picasso image load youttube thumbnail
+            String videoUrl = remedyObject.getImageName();//"https://www.youtube.com/watch?v=zpxHe8NxLmI";
+            Uri uri = Uri.parse(videoUrl);
+            String videoID = uri.getQueryParameter("v");
+            String url = "http://img.youtube.com/vi/" + videoID + "/0.jpg";
+
+            final Uri uri_ = Uri.parse(url);
+            // rounded corners
+            Picasso.get().load(uri_).transform(new RoundedCornersTransformation(10,10)).into(viewHolder.imageVw);
+
+        }else{
+            //load image
+            int imageResourceId =  getResourceId(remedyObject.getImageName(), R.drawable.class);
+            viewHolder.imageVw.setImageResource(imageResourceId);
+        }
+
 
         // with picasso and resource image
 //        Picasso.with(context).load(R.drawable.drawableName).into(imageView);
         //Picasso.get().load(uri_).transform(new RoundedCornersTransformation(10,10))
 
-        // picasso image load youttube thumbnail
-//        String videoUrl = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
-//        Uri uri = Uri.parse(videoUrl);
-//        String videoID = uri.getQueryParameter("v");
-//        String url = "http://img.youtube.com/vi/" + videoID + "/0.jpg";
-//
-//        final Uri uri_ = Uri.parse(url);
-//        // rounded corners
-//        Picasso.get().load(uri_).transform(new RoundedCornersTransformation(10,10)).into(viewHolder.imageVw);
 
-        viewHolder.ailDescription.setText(remedyObject.getDescription());
 
         return conView;
     }
