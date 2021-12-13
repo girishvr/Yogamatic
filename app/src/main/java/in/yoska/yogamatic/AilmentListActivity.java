@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,16 +24,18 @@ public class AilmentListActivity extends AppCompatActivity {
     ListView listAilments;
     String FILE_PATH = "https://www.youtube.com/watch?v=zpxHe8NxLmI";
     ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
-
+    String [] ailmentsList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ailment_list);
 
         Bundle extras = getIntent().getExtras();
-        if(extras != null) filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
+        if(extras != null){
+            filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
+        }
         // fetch list
-        String [] ailmentsList = getResources().getStringArray(R.array.Ailments);
+        ailmentsList = getResources().getStringArray(R.array.Ailments);
 
         listAilments = (ListView) findViewById(R.id.listview_ailment);
 
@@ -44,7 +47,7 @@ public class AilmentListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Log.e("Clicked ", "Clicked - "+String.valueOf(position));
-                Log.e("Clicked ", "Clicked - "+String.valueOf(id));
+                loadTheRespectiveActivity(position);
 
 //                watchYoutubeVideo(AilmentListActivity.this,"zpxHe8NxLmI");
 ////                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FILE_PATH)));
@@ -54,6 +57,16 @@ public class AilmentListActivity extends AppCompatActivity {
 
 
         });
+
+    }
+    public void loadTheRespectiveActivity(int index){
+
+        ArrayList<YogData> fineFilteredData = new ArrayList<YogData>();
+        fineFilteredData = getFineFilteredData(ailmentsList[index]);
+
+        Intent remedyIntent = new Intent(AilmentListActivity.this, RemedyListActivity.class);
+        remedyIntent.putParcelableArrayListExtra("FINE_FILTERED_DATA", (ArrayList<? extends Parcelable>) fineFilteredData);
+        startActivity(remedyIntent);
 
     }
     public static void watchYoutubeVideo(Context context, String id){
@@ -67,5 +80,15 @@ public class AilmentListActivity extends AppCompatActivity {
         }
     }
 
+    public ArrayList<YogData> getFineFilteredData(String ailmentStr){
+        ArrayList<YogData> filteredData = new ArrayList<YogData>();
+        for(YogData object : filteredExcelData){
+            String objCategory = object.getAilment();
+            if(objCategory.equals(ailmentStr)){
+                filteredData.add(object);
+            }
+        }
+        return filteredData;
+    }
 
 }

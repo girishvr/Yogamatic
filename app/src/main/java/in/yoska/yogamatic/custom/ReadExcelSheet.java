@@ -94,9 +94,9 @@ public class ReadExcelSheet {
         YogData dataObject = new YogData();
         dataObject.setCategory(dataList.get(0));
         dataObject.setAilment(dataList.get(1));
-        dataObject.setType(dataList.get(2));
-        dataObject.setImageName(dataList.get(3));
-        dataObject.setDescription(dataList.get(4));
+        dataObject.setType(dataList.get(4));
+        dataObject.setImageName(dataList.get(2));
+        dataObject.setDescription(dataList.get(3));
 
         return dataObject;
 

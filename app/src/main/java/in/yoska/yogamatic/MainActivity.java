@@ -71,12 +71,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_remedies:
                 btnIndex = 1;
                 break;
-            case R.id.button_asana:
+            case R.id.button_mudras:
                 btnIndex = 2;
                 break;
-            case R.id.button_mudras:
+            case R.id.button_asana:
                 btnIndex = 3;
                 break;
+
             default:
                 btnIndex = 0;
         }
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 filteredData = getFilteredExcelData("Yogasana");
                 break;
             default:
-                filteredData = getFilteredExcelData("Diet");
+                System.out.println("Default of switch in MainActivity!");
         }
 
         Intent ailmentIntent = new Intent(this, AilmentListActivity.class);
