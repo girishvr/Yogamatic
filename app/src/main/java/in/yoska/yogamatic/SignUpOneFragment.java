@@ -1,10 +1,13 @@
 package in.yoska.yogamatic;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -25,7 +28,7 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    EditText etName,etEmail,etPassword,etConPassword;
     public SignUpOneFragment() {
         // Required empty public constructor
     }
@@ -64,16 +67,47 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
 
         view = inflater.inflate(R.layout.fragment_sign_up_one, container, false);
         Button continueBtn = (Button)view.findViewById(R.id.btn_continue);
-
+        etName = (EditText)view.findViewById(R.id.et_name);
+        etEmail = (EditText)view.findViewById(R.id.et_email);
+        etPassword = (EditText)view.findViewById(R.id.et_password);
+        etConPassword = (EditText)view.findViewById(R.id.et_repassword);
         continueBtn.setOnClickListener(this);
-
 
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        SignUpActivity yourActivity = (SignUpActivity) getActivity();
-        yourActivity.setCurrentItem (1, true);
+        boolean shouldProceed = getAllText();
+        if(shouldProceed){
+            SignUpActivity yourActivity = (SignUpActivity) getActivity();
+            yourActivity.setCurrentItem (1, true);
+        }else{
+            //show toaster
+            Activity activity = getActivity();
+            Toast.makeText(activity,getString(R.string.password_error), Toast.LENGTH_LONG).show();
+        }
+
+
+
+    }
+
+    public Boolean getAllText(){
+        String pw1 = etPassword.getText().toString();
+        String pw2 = etConPassword.getText().toString();
+        if(pw1.equals(pw2)){
+
+            String name = etName.getText().toString();
+            String email = etEmail.getText().toString();
+
+            SignUpActivity yourActivity = (SignUpActivity) getActivity();
+            yourActivity.setActivityFirstData(name,email,pw1);
+
+            return true;
+        }
+        //if password mis match
+        return false;
+
+
     }
 }

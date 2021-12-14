@@ -36,6 +36,7 @@
     <string name="e_mail">Email</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
+    <string name="password_error">Passwords Not Matching!</string>
 
     <string name="tag">Let\'s join us and \nBuild your relationship with healthy lifestyle</string>
 

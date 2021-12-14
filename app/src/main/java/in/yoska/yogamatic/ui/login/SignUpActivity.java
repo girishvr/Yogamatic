@@ -35,14 +35,28 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public void registrationComplete () {
-
-        //TODO: set this properly
+    public void setActivityFirstData(String name, String email, String pass){
+        //TODO: save this only on registration complete
         final UserObject userData = (UserObject) getApplicationContext();
-        userData.setHeight((float)1.5);
-        userData.setWeight((float)100.0);
 
-        //UserObject object
+        userData.setName(name);
+        userData.setEmail(email);
+        userData.setPassword(pass);
+    }
+
+    public void setActivitySecondData(String dob, float wt, float ht, String ailment){
+        //TODO: save this only on registration complete
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.setDate_of_birth(dob);
+        userData.setHeight(ht);
+        userData.setWeight(wt);
+        userData.setAilment(ailment);
+
+        //call activity to go to first pafe
+        registrationComplete();
+    }
+
+    public void registrationComplete () {
         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
     }
 
@@ -79,6 +93,6 @@ public class SignUpActivity extends AppCompatActivity {
             fragmentList.add(fragment);
         }
 
-
     }
+
 }

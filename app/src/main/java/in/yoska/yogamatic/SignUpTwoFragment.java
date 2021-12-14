@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
@@ -28,6 +29,9 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    AutoCompleteTextView ailmentTextView;
+    EditText etDob, etHeight, etWeight;
 
     public SignUpTwoFragment() {
         // Required empty public constructor
@@ -66,11 +70,15 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
         // Inflate the layout for this fragment
 
         view = inflater.inflate(R.layout.fragment_sign_up_two, container, false);
+        etDob = (EditText) view.findViewById(R.id.et_dob);
+        etHeight = (EditText)view.findViewById(R.id.et_height);
+        etWeight = (EditText)view.findViewById(R.id.et_weight);
+        ailmentTextView = (AutoCompleteTextView)view.findViewById(R.id.et_ailment);
+
         Button signUpBtn = (Button)view.findViewById(R.id.btn_register);
 
         String [] remedies = getResources().getStringArray(R.array.Ailments);
         ArrayAdapter <String> adaptor = new ArrayAdapter<String>(view.getContext(), android.R.layout.select_dialog_item, remedies);
-        AutoCompleteTextView ailmentTextView = (AutoCompleteTextView)view.findViewById(R.id.et_ailment);
         ailmentTextView.setThreshold(0);
         ailmentTextView.setAdapter(adaptor);
         ailmentTextView.setTextColor(Color.DKGRAY);
@@ -82,8 +90,19 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        getAllTextViewData();
+
+    }
+    public void getAllTextViewData(){
+        String dob = etDob.getText().toString();
+        float wt = Float.valueOf(etWeight.getText().toString());
+        float ht = Float.valueOf(etHeight.getText().toString());
+
+        String ailmnt = ailmentTextView.getText().toString();
+
         SignUpActivity yourActivity = (SignUpActivity) getActivity();
-        yourActivity.registrationComplete();
+        yourActivity.setActivitySecondData(dob,wt,ht,ailmnt);
+
 
     }
 }
