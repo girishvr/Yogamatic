@@ -12,6 +12,10 @@ public class UserObject extends Application {
     private String ailment;
     private int selectedButtonIndex;
 
+    public UserObject(){
+       this.name = "";
+       this.password = "";
+    }
     public String getName() {
         return name;
     }

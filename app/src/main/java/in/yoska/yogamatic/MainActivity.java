@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         fetchExcelSheetData();
 
         //TODO: for testing
-//        isLoggedIn = true;
+        isLoggedIn = true;
 
         //check log in and then load the respective views
         if (isLoggedIn){
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setDashBoardUI(){
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void didSelectButton(View view){
         int btnIndex = 0;
