@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         fetchExcelSheetData();
 
         //TODO: for testing
-        isLoggedIn = true;
+//        isLoggedIn = true;
 
         //check log in and then load the respective views
         if (isLoggedIn){
@@ -61,74 +61,40 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void didSelectAilment(String selectedAilment){
+        //set global data first
+        setSelectedAilment(selectedAilment);
 
-    public void didSelectButton(View view){
-        int btnIndex = 0;
-        switch (view.getId()){
-            case R.id.button_diet:
-                btnIndex = 0;
-                break;
-            case R.id.button_remedies:
-                btnIndex = 1;
-                break;
-            case R.id.button_mudras:
-                btnIndex = 2;
-                break;
-            case R.id.button_asana:
-                btnIndex = 3;
-                break;
-
-            default:
-                btnIndex = 0;
-        }
-
-        selectedButton(btnIndex);
-
-    }
-    public void selectedButton(int buttonIndx){
-        final UserObject userData = (UserObject) getApplicationContext();
-        userData.setSelectedButtonIndex(buttonIndx);
-        //load a list view
-        loadListView(buttonIndx);
-    }
-    public void loadListView(int indx){
         ArrayList<YogData> filteredData = new ArrayList<YogData>();
-        switch (indx){
-            case 0:
-                filteredData = getFilteredExcelData("Diet");
-                break;
-            case 1:
-                filteredData = getFilteredExcelData("Remedies");
-                break;
-            case 2:
-                filteredData = getFilteredExcelData("Yogmudras");
-                break;
-            case 3:
-                filteredData = getFilteredExcelData("Yogasana");
-                break;
-            default:
-                System.out.println("Default of switch in MainActivity!");
-        }
-
+        filteredData = getFilteredExcelData(selectedAilment);
         Intent ailmentIntent = new Intent(this, AilmentListActivity.class);
         ailmentIntent.putParcelableArrayListExtra("FILTERED_DATA", (ArrayList<? extends Parcelable>) filteredData);
         startActivity(ailmentIntent);
     }
+
+    public String getSelectedAilment(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return userData.getAilment();
+    }
+
+    public void setSelectedAilment(String ailment){
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.setAilment(ailment);
+    }
+
     public String getUserName(){
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getName();
     }
-    //TODO: uncomment when real data available
+
     public float getUserWeight(){
         final UserObject userData = (UserObject) getApplicationContext();
-//        return userData.getWeight();
-        return (float)100.0;
+        return userData.getWeight();
 
     }
     public float getUserHeight(){
         final UserObject userData = (UserObject) getApplicationContext();
-//        return userData.getHeight();
-        return (float)1.6;
+        return userData.getHeight();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -175,11 +141,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public ArrayList<YogData> getFilteredExcelData(String category){
+    public ArrayList<YogData> getFilteredExcelData(String ailment){
         ArrayList<YogData> filteredData = new ArrayList<YogData>();
         for(YogData object : importedExcelData){
-            String objCategory = object.getCategory();
-            if(objCategory.equals(category)){
+            String objAilment = object.getAilment();
+            if(objAilment.equals(ailment)){
                 filteredData.add(object);
             }
         }

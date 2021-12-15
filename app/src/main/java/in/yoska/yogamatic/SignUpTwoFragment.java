@@ -1,6 +1,8 @@
 package in.yoska.yogamatic;
 
+import android.app.Activity;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import in.yoska.yogamatic.ui.login.SignUpActivity;
@@ -64,6 +68,7 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
         }
     }
     View view;
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,25 +89,45 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
         ailmentTextView.setTextColor(Color.DKGRAY);
         signUpBtn.setOnClickListener(this);
 
+        setDateTextField();
+
         return view;
 
     }
 
+
+    private void setDateTextField() {
+//        etDob.setOnClickListener(this);
+//        etDob.setInputType(InputType.TYPE_NULL);
+//        etDob.requestFocus();
+    }
+
     @Override
     public void onClick(View v) {
-        getAllTextViewData();
+        if(view == etDob) {
+//            datePickerDialog.show();
+        } else{
+            getAllTextViewData();
+        }
 
     }
     public void getAllTextViewData(){
-        String dob = etDob.getText().toString();
-        float wt = Float.valueOf(etWeight.getText().toString());
-        float ht = Float.valueOf(etHeight.getText().toString());
 
-        String ailmnt = ailmentTextView.getText().toString();
+        if(etDob.getText().toString().length()==0 || etWeight.getText().toString().length()==0
+        || etHeight.getText().toString().length()==0 || ailmentTextView.getText().toString().length()==0){
+            Activity activity = getActivity();
+            Toast.makeText(activity ,getString(R.string.signup_error), Toast.LENGTH_LONG).show();
+        }else{
+            String dob = etDob.getText().toString();
+            float wt = Float.valueOf(etWeight.getText().toString());
+            float ht = Float.valueOf(etHeight.getText().toString());
+            String ailmnt = ailmentTextView.getText().toString();
+            // save and go back to Log In
+            SignUpActivity yourActivity = (SignUpActivity) getActivity();
+            yourActivity.setActivitySecondData(dob,wt,ht,ailmnt);
 
-        SignUpActivity yourActivity = (SignUpActivity) getActivity();
-        yourActivity.setActivitySecondData(dob,wt,ht,ailmnt);
-
+        }
 
     }
+
 }

@@ -6,46 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <Button
-        android:id="@+id/button_diet"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/diet"
-        app:layout_constraintBottom_toTopOf="@+id/button_remedies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner" />
-
-    <Button
-        android:id="@+id/button_remedies"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/remedies"
-        app:layout_constraintBottom_toTopOf="@+id/button_mudras"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_diet" />
-
-    <Button
-        android:id="@+id/button_mudras"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/yog_mudras"
-        app:layout_constraintBottom_toTopOf="@+id/button_asana"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_remedies" />
-
-    <Button
-        android:id="@+id/button_asana"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/yog_asanas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_mudras" />
 
     <TextView
         android:id="@+id/textview_first"
@@ -84,10 +44,21 @@
         android:stateListAnimator="@drawable/spinner_sla"
         android:paddingEnd="14dp"
         android:popupElevation="3dp"
-        app:layout_constraintBottom_toTopOf="@id/button_diet"
+        app:layout_constraintBottom_toTopOf="@id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_bmi" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

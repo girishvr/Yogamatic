@@ -25,10 +25,11 @@ public class RemedyListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remedy_list);
-        setTitle("REMEDY");
         Bundle extras = getIntent().getExtras();
+
         if(extras != null){
             fineFilteredData = extras.<YogData>getParcelableArrayList("FINE_FILTERED_DATA");
+            setTitle(extras.getString("SELECTED_OPTION"));
         }
 
         listRemedies = (ListView) findViewById(R.id.list_view_remedy);

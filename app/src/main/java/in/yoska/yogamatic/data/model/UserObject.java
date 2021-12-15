@@ -15,6 +15,7 @@ public class UserObject extends Application {
     public UserObject(){
        this.name = "";
        this.password = "";
+       this.ailment = "Eyesight";
     }
     public String getName() {
         return name;
