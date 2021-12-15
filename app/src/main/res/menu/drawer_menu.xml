@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item android:id="@+id/progressreport"
+            android:title="Progress Report">
+        </item>
+        <item android:id="@+id/bmi"
+            android:title="BMI">
+        </item>
+        <item android:id="@+id/logout"
+            android:title="Logout">
+        </item>
+        </group>
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item android:id="@+id/nav_Policy"
+            android:title="Privacy Policy">
+        </item>
+        <item android:id="@+id/nav_share"
+            android:title="Share">
+        </item>
+        <item android:id="@+id/nav_aboutus"
+            android:title="About Us">
+        </item>
+    </group>
+
+</menu>

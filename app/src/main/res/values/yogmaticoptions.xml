@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name ="Category">
+
+        <item>Diet</item>
+        <item>Remedies</item>
+        <item>Yogmudras</item>
+        <item>Yogasana</item>
+
+    </string-array>
+
+    <string-array name ="Ailments">
+        <item>Asthma</item>
+        <item>Back Pain</item>
+        <item>Cancer</item>
+        <item>Diabetes</item>
+        <item>Eyesight</item>
+        <item>Kidney Stone</item>
+        <item>Stress Relief</item>
+        <item>Thyroid</item>
+        <item>Weight Gain</item>
+        <item>Weight Loss</item>
+        <item>Normal</item>
+    </string-array>
+
+</resources>

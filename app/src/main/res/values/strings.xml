@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Yogamatic</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="diet">Diet</string>
+    <string name="remedies">Home Remedies</string>
+    <string name="yog_mudras">Yog Mudras</string>
+    <string name="yog_asanas">Yogasanas</string>
+
+    <string name="previous">Previous</string>
+    <string name="select_option">Select Option</string>
+
+    <string name="hello_first_fragment">Hello User</string>
+    <string name="bmi_text">This is your BMI - %1$s</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="user_name">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome! "</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_error">"Login failed! Check credentials or Sign Up."</string>
+    <string name="signup_error">"Please fill all the fields."</string>
+
+    <string name="cont">Continue</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="your_name">Full Name</string>
+    <string name="e_mail">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="password_error">Passwords Not Matching!</string>
+
+    <string name="tag">Let\'s join us and \nBuild your relationship with healthy lifestyle</string>
+
+    <string name="please">Please</string>
+    <string name="enter_following">Also enter the following fields</string>
+    <string name="dob">Date of Birth</string>
+    <string name="height">Height in Meters</string>
+    <string name="weight">Weight in Kgs</string>
+    <string name="ailment">Ailment</string>
+    <string name="register">Register</string>
+    <string name="description_text">Description Text</string>
+
+    <string name="next">Next</string>
+
+</resources>
