@@ -54,44 +54,105 @@
 
                 <Button
                     android:id="@+id/button_diet"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="232dp"
                     android:layout_marginTop="40dp"
-                    android:text="@string/diet"
+                    android:background="@drawable/two"
+                    android:padding="5dp"
                     app:layout_constraintBottom_toTopOf="@+id/button_remedies"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/button_remedies"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/textview_first" />
 
                 <Button
-                    android:id="@+id/button_remedies"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/remedies"
-                    app:layout_constraintBottom_toTopOf="@+id/button_mudras"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button_diet" />
+                    android:id="@+id/button_asana"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/one"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_diet"
+                    app:layout_constraintEnd_toEndOf="@+id/button_mudras"
+                    app:layout_constraintStart_toStartOf="@+id/button_mudras"
+                    app:layout_constraintTop_toTopOf="@+id/button_diet"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <Button
                     android:id="@+id/button_mudras"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yog_mudras"
-                    app:layout_constraintBottom_toTopOf="@+id/button_asana"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="56dp"
+                    android:background="@drawable/three"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/button_remedies"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button_remedies" />
+                    app:layout_constraintTop_toTopOf="@+id/button_remedies" />
 
                 <Button
-                    android:id="@+id/button_asana"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yog_asanas"
+                    android:id="@+id/button_remedies"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="52dp"
+                    android:layout_marginBottom="116dp"
+                    android:padding="5dp"
+                    android:background="@drawable/four"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button_mudras" />
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/button_asana"
+                    android:text="YogAasan"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/button_asana"
+                    app:layout_constraintStart_toStartOf="@+id/button_asana"
+                    app:layout_constraintTop_toBottomOf="@+id/button_asana" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/button_diet"
+                    android:text="Diet"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/button_diet"
+                    app:layout_constraintStart_toStartOf="@+id/button_diet"
+                    app:layout_constraintTop_toBottomOf="@+id/button_diet" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/button_mudras"
+                    android:text="YogMudra"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/button_mudras"
+                    app:layout_constraintStart_toStartOf="@+id/button_mudras"
+                    app:layout_constraintTop_toBottomOf="@+id/button_mudras" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/button_remedies"
+                    android:text="HomeRemedies"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/button_remedies"
+                    app:layout_constraintStart_toStartOf="@+id/button_remedies"
+                    app:layout_constraintTop_toBottomOf="@+id/button_remedies" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

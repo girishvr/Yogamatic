@@ -73,6 +73,10 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
         etConPassword = (EditText)view.findViewById(R.id.et_repassword);
         continueBtn.setOnClickListener(this);
 
+        String name = etName.getText().toString();
+        String email = etEmail.getText().toString();
+
+
         return view;
     }
 
@@ -87,8 +91,6 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
             Activity activity = getActivity();
             Toast.makeText(activity,getString(R.string.password_error), Toast.LENGTH_LONG).show();
         }
-
-
 
     }
 

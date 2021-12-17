@@ -42,10 +42,7 @@ public class RemedyListActivity extends AppCompatActivity {
                                     int position, long id) {
                 Log.e("Clicked ", "Clicked - "+String.valueOf(position));
                 loadTheRespectiveVideo(position);
-
             }
-
-
         });
     }
     public void loadTheRespectiveVideo(int index){

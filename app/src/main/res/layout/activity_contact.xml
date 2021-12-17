@@ -6,16 +6,17 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".ProgressActivity">
+    tools:context=".ContactActivity">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Progress report"
         android:textSize="30sp"
         android:textColor="@color/black"
-        android:textStyle="bold"/>
-
+        android:textStyle="bold"
+        android:text="Support Page"
+        />
 
 
 </LinearLayout>

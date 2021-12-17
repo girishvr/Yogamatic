@@ -15,10 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yogamatic">
         <activity
-            android:name=".bmiActivity"
+            android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ProgressActivity"
+            android:name=".ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bmiActivity"
             android:exported="false" />
         <activity android:name=".RemedyListActivity" />
         <activity android:name=".AilmentListActivity" />

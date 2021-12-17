@@ -46,12 +46,6 @@ public class AilmentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ailment_list);
 
 
-
-
-
-
-
-
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
@@ -101,11 +95,6 @@ public class AilmentListActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId())
                 {
-                    case  R.id.progressreport:
-
-                        Intent intent = new Intent(AilmentListActivity.this, ProgressActivity.class);
-                        startActivity(intent);
-                        break;
                     case R.id.bmi:
                         Intent intent1 = new Intent(AilmentListActivity.this,bmiActivity.class);
                         startActivity(intent1);
@@ -113,6 +102,23 @@ public class AilmentListActivity extends AppCompatActivity {
                     case R.id.logout:
                         Intent intent2 = new Intent(AilmentListActivity.this, LoginActivity.class);
                         startActivity(intent2);
+                        break;
+                    case R.id.viewprofile:
+                        Intent intent3 = new Intent(AilmentListActivity.this, ProfileActivity.class);
+                        startActivity(intent3);
+                        break;
+                    case R.id.nav_aboutus:
+                        Intent intent4 = new Intent(AilmentListActivity.this, AboutUsActivity.class);
+                        startActivity(intent4);
+                        break;
+                    case R.id.nav_contact:
+                        Intent intent5 = new Intent(AilmentListActivity.this, ContactActivity.class);
+                        startActivity(intent5);
+                        // it is edited with support page
+                        break;
+                    case R.id.action_settings:
+                        Intent intent6 = new Intent(AilmentListActivity.this, SettingActivity.class);
+                        startActivity(intent6);
                         break;
 
 //Paste your privacy policy link
@@ -124,18 +130,18 @@ public class AilmentListActivity extends AppCompatActivity {
 //
 //                    }
                     //       break;
-                    case  R.id.nav_share:{
-
-                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                        sharingIntent.setType("text/plain");
-                        String shareBody =  "http://play.google.com/store/apps/detail?id=" + getPackageName();
-                        String shareSub = "Try now";
-                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
-                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                        startActivity(Intent.createChooser(sharingIntent, "Share using"));
-
-                    }
-                    break;
+//                    case  R.id.nav_share:{
+//
+//                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                        sharingIntent.setType("text/plain");
+//                        String shareBody =  "http://play.google.com/store/apps/detail?id=" + getPackageName();
+//                        String shareSub = "Try now";
+//                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+//                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+//                        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+//
+//                    }
+//                    break;
                 }
                 return false;
             }

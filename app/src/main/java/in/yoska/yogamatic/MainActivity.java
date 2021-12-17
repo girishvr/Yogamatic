@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             String objAilment = object.getAilment();
             if(objAilment.equals(ailment)){
                 filteredData.add(object);
+
             }
         }
         return filteredData;
