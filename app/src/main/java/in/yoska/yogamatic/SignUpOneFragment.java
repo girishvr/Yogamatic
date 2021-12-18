@@ -82,31 +82,44 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
         if(shouldProceed){
             SignUpActivity yourActivity = (SignUpActivity) getActivity();
             yourActivity.setCurrentItem (1, true);
-        }else{
-            //show toaster
-            Activity activity = getActivity();
-            Toast.makeText(activity,getString(R.string.password_error), Toast.LENGTH_LONG).show();
         }
-
-
-
     }
 
     public Boolean getAllText(){
         String pw1 = etPassword.getText().toString();
-        String pw2 = etConPassword.getText().toString();
-        if(pw1.equals(pw2)){
 
-            String name = etName.getText().toString();
-            String email = etEmail.getText().toString();
-
-            SignUpActivity yourActivity = (SignUpActivity) getActivity();
-            yourActivity.setActivityFirstData(name,email,pw1);
-
-            return true;
+        if (pw1.length()<=5){
+            showPasswordErrorMsg(true);
+            return false;
         }
-        //if password mis match
-        return false;
+
+        String pw2 = etConPassword.getText().toString();
+
+        if(!(pw1.equals(pw2))){
+            //if password mis-match
+            showPasswordErrorMsg(false);
+            return false;
+        }
+
+        String name = etName.getText().toString();
+        String email = etEmail.getText().toString();
+        // Save the data
+        SignUpActivity yourActivity = (SignUpActivity) getActivity();
+        yourActivity.setActivityFirstData(name, email, pw1);
+
+        return true;
+
+    }
+
+    public void showPasswordErrorMsg(boolean shortPassword){
+        //show toaster
+        Activity activity = getActivity();
+        if (shortPassword) {
+            Toast.makeText(activity, getString(R.string.password_length_error), Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(activity,getString(R.string.password_error), Toast.LENGTH_LONG).show();
+        }
 
 
     }
