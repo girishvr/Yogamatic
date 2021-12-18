@@ -1,6 +1,9 @@
 package in.yoska.yogamatic.data.model;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class UserObject extends Application {
     private String name;
@@ -11,12 +14,69 @@ public class UserObject extends Application {
     private float height;
     private String ailment;
     private int selectedButtonIndex;
+    private boolean isLoggedIn;
+
 
     public UserObject(){
-       this.name = "";
-       this.password = "";
-       this.ailment = "Eyesight";
+
+//        if(this.name==null){
+//            String nm = "";//preferences.getString("username", "");
+//            this.name = nm;
+//        }
+//       if(this.password == null){
+//           String pw = "";//preferences.getString("password", "");
+//           this.password = pw;
+//       }
+//       if(this.ailment==null) {
+//           String pw = "Eyesight";//preferences.getString("password", "Eyesight");
+//           this.ailment = pw;
+//       }
     }
+
+//    public void clearData(Context context) {
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+//        preferences.edit().remove("username").commit();
+//        preferences.edit().remove("password").commit();
+//        preferences.edit().remove("password").commit();
+//    }
+
+    public void saveData(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putString("username", this.name).commit();
+        preferences.edit().putString("password", this.password).commit();
+
+        preferences.edit().putFloat("height", this.height).commit();
+        preferences.edit().putFloat("weight", this.weight).commit();
+
+        preferences.edit().putBoolean("isLoggedIn", this.isLoggedIn).commit();
+
+        preferences.edit().putString("ailment", this.ailment).commit();
+    }
+
+    public void fetchData(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (this.name == null) {
+            this.name = preferences.getString("username", "");
+        }
+        if (this.password == null) {
+            this.password = preferences.getString("password", "");
+        }
+        if (this.ailment == null) {
+            this.ailment = preferences.getString("ailment", "Eyesight");
+        }
+
+        if (this.weight == 0) {
+            this.weight = preferences.getFloat("weight", 0);
+        }
+        if (this.height == 0) {
+            this.height = preferences.getFloat("height", 0);
+        }
+
+        if (this.isLoggedIn == false) {
+            this.isLoggedIn = preferences.getBoolean("isLoggedIn", false);
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -79,5 +139,19 @@ public class UserObject extends Application {
 
     public int getSelectedButtonIndex() {
         return selectedButtonIndex;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.isLoggedIn = loggedIn;
+    }
+
+    public boolean getLoggedIn(Context context) {
+
+        if(this.isLoggedIn == false) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            return preferences.getBoolean("isLoggedIn", false);
+        }
+
+        return false;
     }
 }

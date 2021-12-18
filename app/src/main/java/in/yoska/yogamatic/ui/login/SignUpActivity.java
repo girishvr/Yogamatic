@@ -38,10 +38,10 @@ public class SignUpActivity extends AppCompatActivity {
     public void setActivityFirstData(String name, String email, String pass){
         //TODO: save this only on registration complete
         final UserObject userData = (UserObject) getApplicationContext();
-
         userData.setName(name);
         userData.setEmail(email);
         userData.setPassword(pass);
+
     }
 
     public void setActivitySecondData(String dob, float wt, float ht, String ailment){
@@ -51,7 +51,6 @@ public class SignUpActivity extends AppCompatActivity {
         userData.setHeight(ht);
         userData.setWeight(wt);
         userData.setAilment(ailment);
-
         //call activity to go to first pafe
         registrationComplete();
     }

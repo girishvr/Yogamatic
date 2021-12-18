@@ -22,18 +22,19 @@ import in.yoska.yogamatic.data.model.YogData;
 import in.yoska.yogamatic.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    boolean isLoggedIn = false;
+    boolean isLoggedIn = true;
     ArrayList<YogData> importedExcelData = new ArrayList<YogData>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
+        // read data from the excel sheet
         fetchExcelSheetData();
 
-        //TODO: for testing
-//        isLoggedIn = true;
+        //get data from the preferance
+        getUserData();
+        isLoggedIn = checkLoggedIn();
 
         //check log in and then load the respective views
         if (isLoggedIn){
@@ -42,6 +43,26 @@ public class MainActivity extends AppCompatActivity {
             isLoggedIn = true;
             showLoginSignUp();
         }
+
+    }
+
+    public boolean checkLoggedIn(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return  userData.getLoggedIn(this);
+    }
+
+    public void getUserData(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.fetchData(this);
+    }
+
+    public void logout(View view){
+        isLoggedIn = false;
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.setLoggedIn(isLoggedIn);
+        userData.saveData(this);
+//        userData.clearData(this);
+        showLoginSignUp();
 
     }
 
