@@ -115,9 +115,14 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
 
         picker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
             @Override public void onPositiveButtonClick(Long selection) {
+                String selectedDate = String.valueOf(selection);
                 Date date = new Date(selection);
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                String selectedDate = formatter.format(date);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    selectedDate = formatter.format(date);
+                }
+
                 etDob.setText(selectedDate);
             }
         });
