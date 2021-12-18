@@ -1,8 +1,10 @@
 package in.yoska.yogamatic;
 
 import android.app.Activity;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,14 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
+import java.sql.Date;
+
 import in.yoska.yogamatic.ui.login.SignUpActivity;
+
+//import android.icu.text.SimpleDateFormat;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,20 +100,43 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
 
 
     private void setDateTextField() {
-//        etDob.setOnClickListener(this);
-//        etDob.setInputType(InputType.TYPE_NULL);
-//        etDob.requestFocus();
+        etDob.setOnClickListener(this);
+        etDob.setInputType(InputType.TYPE_NULL);
+        etDob.requestFocus();
     }
+
+    public void datePickerDialogShow(){
+        SignUpActivity yourActivity = (SignUpActivity) getActivity();
+
+        MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Select you date of birth");
+        MaterialDatePicker<Long> picker = builder.build();
+        picker.show(yourActivity.getSupportFragmentManager(), picker.toString());
+
+        picker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
+            @Override public void onPositiveButtonClick(Long selection) {
+                Date date = new Date(selection);
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                String selectedDate = formatter.format(date);
+                etDob.setText(selectedDate);
+            }
+        });
+
+
+    }
+
 
     @Override
     public void onClick(View v) {
-        if(view == etDob) {
-//            datePickerDialog.show();
-        } else{
+        if(v.getId() == R.id.et_dob) {
+            datePickerDialogShow();
+        } else if(v.getId() == R.id.btn_register){
             getAllTextViewData();
         }
 
     }
+
+
     public void getAllTextViewData(){
 
         if(etDob.getText().toString().length()==0 || etWeight.getText().toString().length()==0
