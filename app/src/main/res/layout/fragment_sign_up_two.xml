@@ -72,18 +72,6 @@
             android:background="@drawable/et_custom"
             android:textSize="15sp" />
 
-        <AutoCompleteTextView
-            android:id="@+id/et_ailment"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/ailment"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:padding="15dp"
-            android:inputType="text"
-            android:background="@drawable/et_custom"
-            android:textSize="15sp" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
