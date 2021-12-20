@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item android:id="@+id/viewprofile"
+            android:title="View profile">
+        </item>
+
+        <item android:id="@+id/bmi"
+            android:title="BMI">
+        </item>
+
+        <item android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_baseline_support_agent_24"
+            android:title="support">
+        </item>
+
+        </group>
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+
+        <item
+            android:id="@+id/action_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:orderInCategory="100"
+            android:title="@string/action_settings"
+            />
+
+
+<!--        <item android:id="@+id/nav_share"-->
+<!--            android:title="Share">-->
+<!--        </item>-->
+        <item android:id="@+id/nav_aboutus"
+            android:title="About Us">
+        </item>
+
+        <item android:id="@+id/logout"
+            android:title="Logout">
+        </item>
+
+
+    </group>
+
+</menu>

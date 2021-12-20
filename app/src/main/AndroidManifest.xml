@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.yoska.yogamatic">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".data.model.UserObject"
+        android:allowBackup="true"
+        android:icon="@drawable/yogmatic_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/yogmatic_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Yogamatic">
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileAcivity"
+            android:exported="false" />
+        <activity
+            android:name=".bmiActivity"
+            android:exported="false" />
+        <activity android:name=".RemedyListActivity" />
+        <activity android:name=".AilmentListActivity" />
+        <activity
+            android:name=".ui.login.SignUpActivity"
+            android:theme="@style/Theme.Yogamatic.NoActionBar" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Yogamatic.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
