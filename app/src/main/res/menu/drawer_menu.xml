@@ -3,11 +3,18 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item android:id="@+id/viewprofile"
+            android:icon="@drawable/ic_profile"
             android:title="View profile">
         </item>
 
         <item android:id="@+id/bmi"
+            android:icon="@drawable/ic_bmi"
             android:title="BMI">
+        </item>
+
+        <item android:id="@+id/progressreport"
+            android:icon="@drawable/ic_progress_report_svgrepo_com"
+            android:title="Progress Report">
         </item>
 
         <item android:id="@+id/nav_contact"
@@ -33,10 +40,12 @@
 <!--            android:title="Share">-->
 <!--        </item>-->
         <item android:id="@+id/nav_aboutus"
+            android:icon="@drawable/aboutus"
             android:title="About Us">
         </item>
 
         <item android:id="@+id/logout"
+            android:icon="@drawable/ic_baseline_login_24"
             android:title="Logout">
         </item>
 

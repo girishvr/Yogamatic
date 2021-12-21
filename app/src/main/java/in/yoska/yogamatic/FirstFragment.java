@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import in.yoska.yogamatic.custom.CustomSpinner;
 
 public class FirstFragment extends Fragment{
+
 
     CustomSpinner spinner;
     String[] ailmentsList;
@@ -30,6 +32,7 @@ public class FirstFragment extends Fragment{
         // Inflate the layout for this fragment
         return view;
     }
+
 
     void setUpSpinner(View view){
 
@@ -59,6 +62,7 @@ public class FirstFragment extends Fragment{
         greetText.setText("Hello "+yourActivity.getUserName());
 
     }
+
 
     public void displayBMI(View view){
         MainActivity yourActivity = (MainActivity) getActivity();

@@ -12,8 +12,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import in.yoska.yogamatic.custom.ReadExcelSheet;
 import in.yoska.yogamatic.data.model.UserObject;
 import in.yoska.yogamatic.data.model.YogData;
 import in.yoska.yogamatic.ui.login.LoginActivity;
@@ -29,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 public class AilmentListActivity extends AppCompatActivity {
@@ -41,11 +44,19 @@ public class AilmentListActivity extends AppCompatActivity {
 //    for drawer end
 
     ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
+    private ArrayList<YogData> importedExcelData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ailment_list);
+
+        // read data from the excel sheet
+        fetchExcelSheetData();
+
+        //get data from the preferance
+        getUserData();
+
 
 //        yogaasan = (ImageButton) findViewById(R.id.button_asana);
 //
@@ -62,7 +73,8 @@ public class AilmentListActivity extends AppCompatActivity {
         if(extras != null){
             filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
         }
-        setTitle("SELECT OPTIONS");
+//        here is a title for drawer
+        setTitle(getUserName());
 
         ImageButton buttonDiet = (ImageButton)findViewById(R.id.button_diet);
         buttonDiet.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +107,11 @@ public class AilmentListActivity extends AppCompatActivity {
                 selectedButton(3);
             }
         });
+
+
+
+
+
 
         //        start drawer
 
@@ -132,6 +149,10 @@ public class AilmentListActivity extends AppCompatActivity {
                         Intent intent6 = new Intent(AilmentListActivity.this, SettingActivity.class);
                         startActivity(intent6);
                         break;
+                    case R.id.progressreport:
+                        Intent intent7 = new Intent(AilmentListActivity.this, ProgressReport.class);
+                        startActivity(intent7);
+                        break;
 
 //Paste your privacy policy link
 
@@ -159,6 +180,29 @@ public class AilmentListActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getUserData() {
+        final UserObject userData = (UserObject) getApplicationContext();
+        userData.fetchData(this);
+    }
+
+    private void fetchExcelSheetData() {
+        // working model
+        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
+        readExcelSheet.setFileName("yogmatic_data.xls");
+        try{
+            importedExcelData = readExcelSheet.readSheet(AilmentListActivity.this);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public String getUserName(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return userData.getName();
+    }
+
+
     public void setUpToolbar() {
         drawerLayout = findViewById(R.id.drawerLayout);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -172,6 +216,13 @@ public class AilmentListActivity extends AppCompatActivity {
 
 
 //        end drawer
+
+//    public void display(View view){
+//        TextView greetText = (TextView)view.findViewById(R.id.textview_first);
+//        MainActivity yourActivity = (MainActivity) getActivity();
+//        greetText.setText(yourActivity.getUserName());
+//
+//    }
 
 
     // fetch list
