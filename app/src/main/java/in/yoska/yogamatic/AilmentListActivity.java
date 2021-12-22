@@ -58,15 +58,15 @@ public class AilmentListActivity extends AppCompatActivity {
         getUserData();
 
 
-//        yogaasan = (ImageButton) findViewById(R.id.button_asana);
-//
-//        yogaasan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(AilmentListActivity.this,videoYoutubeActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        yogaasan = (ImageButton) findViewById(R.id.button_asana);
+
+        yogaasan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AilmentListActivity.this,YTRecycler.class);
+                startActivity(intent);
+            }
+        });
 
 
         Bundle extras = getIntent().getExtras();
@@ -100,17 +100,13 @@ public class AilmentListActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton buttonAsana = (ImageButton)findViewById(R.id.button_asana);
-        buttonAsana.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectedButton(3);
-            }
-        });
-
-
-
-
+//        ImageButton buttonAsana = (ImageButton)findViewById(R.id.button_asana);
+//        buttonAsana.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                selectedButton(3);
+//            }
+//        });
 
 
         //        start drawer
@@ -201,6 +197,11 @@ public class AilmentListActivity extends AppCompatActivity {
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getName();
     }
+
+//    public String getSelectedAilment(){
+//        final UserObject userData = (UserObject) getApplicationContext();
+//        return userData.getAilment();
+//    }
 
 
     public void setUpToolbar() {

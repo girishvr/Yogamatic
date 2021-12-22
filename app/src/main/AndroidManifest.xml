@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yogamatic">
         <activity
+            android:name=".YTRecycler"
+            android:exported="false" />
+        <activity
             android:name=".ProgressReport"
             android:exported="false" />
         <activity
