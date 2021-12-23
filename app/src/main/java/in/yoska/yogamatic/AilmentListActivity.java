@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,26 +20,21 @@ import in.yoska.yogamatic.data.model.YogData;
 import in.yoska.yogamatic.ui.login.LoginActivity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-public class AilmentListActivity extends AppCompatActivity {
+public class AilmentListActivity<bmivali> extends AppCompatActivity {
 
     //    for drawer start
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     ImageButton yogaasan;
+    TextView dashdisplay,bmi;
 //    for drawer end
 
     ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
@@ -57,6 +51,25 @@ public class AilmentListActivity extends AppCompatActivity {
         //get data from the preferance
         getUserData();
 
+        dashdisplay = findViewById(R.id.textview_first);
+        bmi = findViewById(R.id.bmi);
+
+        float weight = Float.parseFloat(String.valueOf(getUserWeight()));
+        float height = Float.parseFloat(String.valueOf(getUserHeight()))/100;
+        float bmiValue = BMICalculate(weight,height);
+
+
+        bmi.setText("Your BMI Is " +String.valueOf(bmiValue));
+
+
+
+
+
+//        bmi.setText(String.valueOf(BMI = Math.floor(BMI * 100 / 100)));
+
+
+        dashdisplay.setText("Hello " + getUserName() );
+
 
         yogaasan = (ImageButton) findViewById(R.id.button_asana);
 
@@ -67,6 +80,7 @@ public class AilmentListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
         Bundle extras = getIntent().getExtras();
@@ -198,7 +212,24 @@ public class AilmentListActivity extends AppCompatActivity {
         return userData.getName();
     }
 
-//    public String getSelectedAilment(){
+    public float getUserWeight(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return userData.getWeight();
+
+    }
+    public float getUserHeight(){
+        final UserObject userData = (UserObject) getApplicationContext();
+        return userData.getHeight();
+    }
+
+    public float BMICalculate(float weight, float height){
+        return weight / (height * height);
+    }
+
+
+
+
+    //    public String getSelectedAilment(){
 //        final UserObject userData = (UserObject) getApplicationContext();
 //        return userData.getAilment();
 //    }
@@ -213,6 +244,7 @@ public class AilmentListActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
     }
+
 //    here end drawer
 
 

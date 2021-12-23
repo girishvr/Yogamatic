@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         //get data from the preferance
         getUserData();
+
         isLoggedIn = checkLoggedIn();
 
         //check log in and then load the respective views
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getHeight();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

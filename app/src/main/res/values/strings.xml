@@ -45,7 +45,7 @@
     <string name="please">Please</string>
     <string name="enter_following">Also enter the following fields</string>
     <string name="dob">Date of Birth</string>
-    <string name="height">Height in Meters</string>
+    <string name="height">Height in CM</string>
     <string name="weight">Weight in Kgs</string>
     <string name="ailment">Ailment</string>
     <string name="register">Register</string>

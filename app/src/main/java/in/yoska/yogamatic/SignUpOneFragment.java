@@ -65,6 +65,7 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         view = inflater.inflate(R.layout.fragment_sign_up_one, container, false);
         Button continueBtn = (Button)view.findViewById(R.id.btn_continue);
         etName = (EditText)view.findViewById(R.id.et_name);
@@ -74,6 +75,7 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
         continueBtn.setOnClickListener(this);
 
         return view;
+
     }
 
     @Override

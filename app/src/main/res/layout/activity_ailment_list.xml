@@ -47,18 +47,28 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/select_option"
                     android:textSize="30dp"
-                    android:visibility="invisible"
+                    android:layout_marginBottom="20dp"
                     app:layout_constraintBottom_toTopOf="@id/button_diet"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="your bmi is"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textview_first"
+                    app:layout_constraintStart_toStartOf="@+id/textview_first"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_first" />
 
                 <ImageButton
                     android:id="@+id/button_diet"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="232dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/two"
                     android:padding="5dp"
                     android:text="Diet"

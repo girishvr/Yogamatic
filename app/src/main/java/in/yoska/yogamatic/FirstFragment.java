@@ -71,7 +71,7 @@ public class FirstFragment extends Fragment{
         //get weight in kg
         double weight = yourActivity.getUserWeight();
         //get height in meters
-        double height = yourActivity.getUserHeight();;
+        double height = yourActivity.getUserHeight();
         double BMI = weight / (height * height);
         BMI = Math.floor(BMI * 100) / 100;
         bmiText.setText("Your BMI is - "+String.valueOf(BMI));
