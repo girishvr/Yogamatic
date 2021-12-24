@@ -42,23 +42,26 @@
 
                 <TextView
                     android:id="@+id/textview_first"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="35dp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
                     android:text="@string/select_option"
                     android:textSize="30dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toTopOf="@id/button_diet"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
 
                 <TextView
                     android:id="@+id/bmi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="your bmi is"
+                    android:text="your bmi"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
+                    android:layout_marginLeft="35dp"
+                    android:paddingLeft="10dp"
                     app:layout_constraintEnd_toEndOf="@+id/textview_first"
                     app:layout_constraintStart_toStartOf="@+id/textview_first"
                     app:layout_constraintTop_toBottomOf="@+id/textview_first" />
@@ -68,7 +71,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="232dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="60dp"
                     android:background="@drawable/two"
                     android:padding="5dp"
                     android:text="Diet"
@@ -108,7 +111,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginEnd="52dp"
-                    android:layout_marginBottom="232dp"
+                    android:layout_marginBottom="210dp"
                     android:background="@drawable/four"
                     android:padding="5dp"
                     android:text="Homeremedies"

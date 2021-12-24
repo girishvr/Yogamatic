@@ -59,7 +59,7 @@ public class FirstFragment extends Fragment{
     public void displayGreeting(View view){
         TextView greetText = (TextView)view.findViewById(R.id.textview_first);
         MainActivity yourActivity = (MainActivity) getActivity();
-        greetText.setText("Hello "+yourActivity.getUserName());
+        greetText.setText("Hello, "+yourActivity.getUserName());
 
     }
 

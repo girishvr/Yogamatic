@@ -40,6 +40,7 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
     ArrayList<YogData> filteredExcelData = new ArrayList<YogData>();
     private ArrayList<YogData> importedExcelData;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
 //        bmi.setText(String.valueOf(BMI = Math.floor(BMI * 100 / 100)));
 
 
-        dashdisplay.setText("Hello " + getUserName() );
+        dashdisplay.setText("Hello, " + getUserName() );
 
 
         yogaasan = (ImageButton) findViewById(R.id.button_asana);
@@ -83,12 +84,13 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
 
 
 
+
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             filteredExcelData = extras.<YogData>getParcelableArrayList("FILTERED_DATA");
         }
 //        here is a title for drawer
-        setTitle(getUserName());
+        setTitle("");
 
         ImageButton buttonDiet = (ImageButton)findViewById(R.id.button_diet);
         buttonDiet.setOnClickListener(new View.OnClickListener() {

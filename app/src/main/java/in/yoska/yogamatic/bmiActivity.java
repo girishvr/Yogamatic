@@ -14,6 +14,8 @@ import in.yoska.yogamatic.data.model.UserObject;
 import in.yoska.yogamatic.data.model.YogData;
 
 public class bmiActivity extends AppCompatActivity {
+
+    TextView bmiIndi,bmiCal;
     
 
 
@@ -21,6 +23,17 @@ public class bmiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
+
+        bmiIndi = (TextView) findViewById(R.id.bmiindicator);
+
+        bmiCal = (TextView) findViewById(R.id.bmicalender);
+        float weight = Float.parseFloat(String.valueOf(getUserWeight()));
+        float height = Float.parseFloat(String.valueOf(getUserHeight()))/100;
+        float bmiValue = BMICalculate(weight,height);
+
+        bmiIndi.setText("Your BMI Is " +String.valueOf(bmiValue));
+
+        bmiCal.setText((interpreteBMI(bmiValue)));
         
 
 
@@ -61,8 +74,25 @@ public class bmiActivity extends AppCompatActivity {
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getHeight();
     }
+    public float BMICalculate(float weight, float height){
+        return weight / (height * height);
+    }
 
 
+    public String interpreteBMI(float bmiValue){
+
+        if (bmiValue < 16){
+            return "Servely Underweight";
+        }else if(bmiValue <18.5){
+            return "Underweight";
+        }else if(bmiValue < 25){
+            return  "Normal";
+        } else if (bmiValue < 30){
+            return "OverWeight";
+        }else{
+            return "obese";
+        }
+    }
 
 
 
