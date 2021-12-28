@@ -35,6 +35,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+
+
     public void setActivityFirstData(String name, String email, String pass){
         //TODO: save this only on registration complete
         final UserObject userData = (UserObject) getApplicationContext();

@@ -2,6 +2,7 @@ package in.yoska.yogamatic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,8 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
     private String mParam1;
     private String mParam2;
     EditText etName,etEmail,etPassword,etConPassword;
-    public SignUpOneFragment() {
-        // Required empty public constructor
-    }
+
+
 
     /**
      * Use this factory method to create a new instance of
@@ -72,22 +72,26 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
         etEmail = (EditText)view.findViewById(R.id.et_email);
         etPassword = (EditText)view.findViewById(R.id.et_password);
         etConPassword = (EditText)view.findViewById(R.id.et_repassword);
-        continueBtn.setOnClickListener(this);
 
+
+        continueBtn.setOnClickListener(this);
         return view;
 
     }
 
+
     @Override
     public void onClick(View v) {
-        boolean shouldProceed = getAllText();
+        boolean shouldProceed = getAllText(etEmail);
         if(shouldProceed){
             SignUpActivity yourActivity = (SignUpActivity) getActivity();
             yourActivity.setCurrentItem (1, true);
         }
     }
 
-    public Boolean getAllText(){
+
+
+    public boolean getAllText(EditText etEmail){
         String pw1 = etPassword.getText().toString();
 
         if (pw1.length()<=5){
@@ -105,13 +109,33 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
 
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
+
+//        String emailInput = etEmail.getText().toString();
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            SignUpActivity yourActivity = (SignUpActivity) getActivity();
+            yourActivity.setActivityFirstData(name, email, pw1);
+            return true;
+        }else {
+//            Toast.makeText(this, "Enter Valid Email address", Toast.LENGTH_SHORT).show();
+            emailvalidation(true);
+            return false;
+        }
         // Save the data
-        SignUpActivity yourActivity = (SignUpActivity) getActivity();
-        yourActivity.setActivityFirstData(name, email, pw1);
-
-        return true;
-
     }
+
+    public void emailvalidation(boolean wrongEmail){
+        Activity activity = getActivity();
+        if (wrongEmail){
+            Toast.makeText(activity,"Enter Your Valid Email Address",Toast.LENGTH_LONG).show();
+        }else{
+
+        }
+    }
+
+
+
+
+
 
     public void showPasswordErrorMsg(boolean shortPassword){
         //show toaster

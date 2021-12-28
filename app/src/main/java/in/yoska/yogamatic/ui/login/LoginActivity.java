@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -21,6 +22,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import in.yoska.yogamatic.AboutUsActivity;
+import in.yoska.yogamatic.AilmentListActivity;
+import in.yoska.yogamatic.MainActivity;
 import in.yoska.yogamatic.R;
 import in.yoska.yogamatic.data.model.UserObject;
 
@@ -30,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     Button signUpButton;
     EditText usernameEditText;
     EditText passwordEditText;
+    TextView signuplater;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
+        signuplater = (TextView) findViewById(R.id.signuplater);
+
 
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
@@ -52,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
 //                startActivity(signUpIntent);
                 startActivity(signUpIntent,
                         ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle());
-
 
             }
         });
@@ -74,6 +84,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
@@ -94,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //Complete and destroy login activity once successful
                     finish();
+
                 }else{
                     showLoginFailed(R.string.login_error);
                     return;
@@ -133,6 +146,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +168,36 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+        String demo1 = "12";
+
+
+        signuplater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent demo = new Intent(LoginActivity.this, AilmentListActivity.class);
+                demo.putExtra("demo1",demo1);
+                startActivity(demo);
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+            }
+
+        });
     }
+
+//    private static void setDashBoardUI(Intent demo) {
+//            FloatingActionButton fab = findViewById(R.id.fab);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//
+//        }
+
+
+
+
 
     public boolean checkLoginCredentials(){
         //Get global data
@@ -159,13 +205,16 @@ public class LoginActivity extends AppCompatActivity {
 
         return ((userData.getName().equals(usernameEditText.getText().toString())
                 &(userData.getPassword().equals(passwordEditText.getText().toString()))));
+
     }
+
     private void updateUiWithUser(LoggedInUserView model) {
 
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
+
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();

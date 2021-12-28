@@ -34,18 +34,37 @@ public class MainActivity extends AppCompatActivity {
 
         //get data from the preferance
         getUserData();
+        String user1 = getIntent().getStringExtra("demo1");
 
-        isLoggedIn = checkLoggedIn();
+//      final   float num = Float.parseFloat(String.valueOf(user1));
+//
+//
+//        if ((num) == 12){
+//            isLoggedIn = false;
+//            setDashBoardUI();
+//        }
+
+
+
+
+
+            isLoggedIn = checkLoggedIn();
 
         //check log in and then load the respective views
         if (isLoggedIn){
             setDashBoardUI();
-        }else{
-            isLoggedIn = true;
-            showLoginSignUp();
+//            showLoginSignUp();
         }
-
+        else if (isLoggedIn = true){
+//            isLoggedIn = true;
+            showLoginSignUp();
+//
+        }
+//        else if (user1.equals("demo")){
+//                setDashBoardUI();
+//            }
     }
+
 
     public boolean checkLoggedIn(){
         final UserObject userData = (UserObject) getApplicationContext();
@@ -64,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         userData.saveData(this);
 //        userData.clearData(this);
         showLoginSignUp();
+//        setDashBoardUI();
 
     }
 
@@ -112,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
     public float getUserWeight(){
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getWeight();
-
     }
+
     public float getUserHeight(){
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getHeight();

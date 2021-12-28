@@ -62,10 +62,6 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
 
         bmi.setText("Your BMI Is " +String.valueOf(bmiValue));
 
-
-
-
-
 //        bmi.setText(String.valueOf(BMI = Math.floor(BMI * 100 / 100)));
 
 
@@ -194,16 +190,21 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
     }
 
     private void getUserData() {
+
         final UserObject userData = (UserObject) getApplicationContext();
+
         userData.fetchData(this);
+
     }
 
     private void fetchExcelSheetData() {
         // working model
         ReadExcelSheet readExcelSheet = new ReadExcelSheet();
         readExcelSheet.setFileName("yogmatic_data.xls");
+
         try{
             importedExcelData = readExcelSheet.readSheet(AilmentListActivity.this);
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -288,6 +289,7 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
         //load a list view
         loadListView(buttonIndx);
     }
+
     public void loadListView(int indx){
         ArrayList<YogData> fineFilteredData = new ArrayList<YogData>();
         Intent ailmentIntent = new Intent(this, RemedyListActivity.class);
@@ -297,18 +299,22 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
                 fineFilteredData = getFineFilteredData("Diet");
                 ailmentIntent.putExtra("SELECTED_OPTION","DIET");
                 break;
+
             case 1:
                 fineFilteredData = getFineFilteredData("Remedies");
                 ailmentIntent.putExtra("SELECTED_OPTION","HOME REMEDIES & TIPS");
                 break;
+
             case 2:
                 fineFilteredData = getFineFilteredData("Yogmudras");
                 ailmentIntent.putExtra("SELECTED_OPTION","YOG MUDRAS");
                 break;
+
             case 3:
                 fineFilteredData = getFineFilteredData("Yogasana");
                 ailmentIntent.putExtra("SELECTED_OPTION","YOGASANA");
                 break;
+
             default:
                 System.out.println("Default of switch in MainActivity!");
         }
@@ -349,7 +355,5 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
         }
         return filteredData;
     }
-
-
 
 }
