@@ -27,7 +27,7 @@ public class FirstFragment extends Fragment{
     ) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         displayGreeting(view);
-        displayBMI(view);
+//        displayBMI(view);
         setUpSpinner(view);
         // Inflate the layout for this fragment
         return view;
@@ -64,19 +64,19 @@ public class FirstFragment extends Fragment{
     }
 
 
-    public void displayBMI(View view){
-        MainActivity yourActivity = (MainActivity) getActivity();
-
-        TextView bmiText = (TextView)view.findViewById(R.id.textview_bmi);
-        //get weight in kg
-        double weight = yourActivity.getUserWeight();
-        //get height in meters
-        double height = yourActivity.getUserHeight();
-        double BMI = weight / (height * height);
-        BMI = Math.floor(BMI * 100) / 100;
-        bmiText.setText("Your BMI is - "+String.valueOf(BMI));
-
-    }
+//    public void displayBMI(View view){
+//        MainActivity yourActivity = (MainActivity) getActivity();
+//
+//        TextView bmiText = (TextView)view.findViewById(R.id.textview_bmi);
+//        //get weight in kg
+//        double weight = yourActivity.getUserWeight();
+//        //get height in meters
+//        double height = yourActivity.getUserHeight();
+//        double BMI = weight / (height * height);
+//        BMI = Math.floor(BMI * 100) / 100;
+//        bmiText.setText("Your BMI is - "+String.valueOf(BMI));
+//
+//    }
 
     public void setSelectedAilment(){
         MainActivity yourActivity = (MainActivity) getActivity();

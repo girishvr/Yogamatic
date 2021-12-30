@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,29 +16,30 @@ import java.util.ArrayList;
 import in.yoska.yogamatic.custom.ReadExcelSheet;
 import in.yoska.yogamatic.data.model.UserObject;
 import in.yoska.yogamatic.data.model.YogData;
-import in.yoska.yogamatic.ui.login.SignUpActivity;
 
-public class ProfileAcivity extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity {
 
+    EditText wtt,htt;
 
     TextView username,useremail,dob,userweight,userheight,userailment;
-
-    Button btn;
-
-
+    Button bckbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_acivity);
+        setContentView(R.layout.activity_edit_profile);
+
 
         // read data from the excel sheet
         fetchExcelSheetData();
 
+
         //get data from the preferance
         getUserData();
 
-        btn = findViewById(R.id.editbtn);
+        wtt = findViewById(R.id.wtt);
+        htt = findViewById(R.id.htt);
+        bckbtn = findViewById(R.id.bckbtn);
 
         username = findViewById(R.id.user);
         useremail = findViewById(R.id.email);
@@ -48,28 +51,32 @@ public class ProfileAcivity extends AppCompatActivity {
         username.setText(getUserName());
         useremail.setText(getUserEmail());
         dob.setText(getUserDob());
-        userweight.setText(String.valueOf(getUserWeight()) );
-        userheight.setText(String.valueOf(getUserHeight()) );
+        wtt.setText(String.valueOf(getUserWeight()));
+        htt.setText(String.valueOf(getUserHeight()));
         userailment.setText(getSelectedAilment());
 
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        bckbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent edit = new Intent(ProfileAcivity.this,EditProfile.class);
-                startActivity(edit);
+                float wt = Float.parseFloat(wtt.getText().toString());
+                float ht = Float.parseFloat(htt.getText().toString());
+//                String ail = (userailment.getText().toString());
+
+                final UserObject userData = (UserObject) getApplicationContext();
+                userData.setHeight(ht);
+                userData.setWeight(wt);
+//                userData.setAilment(ail);
+
+
+                Intent back = new Intent(EditProfile.this,AilmentListActivity.class);
+                Toast.makeText(getApplicationContext(), "Your Profile Is updated", Toast.LENGTH_SHORT).show();
+                startActivity(back);
+
+
             }
         });
 
-
-
-
-
-
-
     }
-
     private void getUserData() {
         final UserObject userData = (UserObject) getApplicationContext();
         userData.fetchData(this);
@@ -80,7 +87,7 @@ public class ProfileAcivity extends AppCompatActivity {
         ReadExcelSheet readExcelSheet = new ReadExcelSheet();
         readExcelSheet.setFileName("yogmatic_data.xls");
         try{
-            ArrayList<YogData> importedExcelData = readExcelSheet.readSheet(ProfileAcivity.this);
+            ArrayList<YogData> importedExcelData = readExcelSheet.readSheet(EditProfile.this);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -110,16 +117,4 @@ public class ProfileAcivity extends AppCompatActivity {
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getDate_of_birth();
     }
-
-
-//    public void setActivitySecondData(float wt1, float ht1) {
-//        final UserObject userData = (UserObject) getApplicationContext();
-//        userData.setHeight(ht1);
-//        userData.setWeight(wt1);
-//        registrationComplete();
-//    }
-//
-//    private void registrationComplete() {
-//        startActivity(new Intent(ProfileAcivity.this, AilmentListActivity.class));
-//    }
 }

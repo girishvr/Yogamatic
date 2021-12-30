@@ -5,15 +5,12 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#68B9F6CA"
+    android:background="@drawable/progressgraph"
     android:layout_height="match_parent"
     tools:context=".ProgressReport">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/ic_progress_report_svgrepo_com"
-        android:layout_marginBottom="100dp"/>
+
+
 
 
 </LinearLayout>

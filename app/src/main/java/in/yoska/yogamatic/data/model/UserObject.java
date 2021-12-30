@@ -51,6 +51,7 @@ public class UserObject extends Application {
         preferences.edit().putBoolean("isLoggedIn", this.isLoggedIn).commit();
 
         preferences.edit().putString("ailment", this.ailment).commit();
+
     }
 
     public void fetchData(Context context){
@@ -58,12 +59,22 @@ public class UserObject extends Application {
         if (this.name == null) {
             this.name = preferences.getString("username", "");
         }
+
         if (this.password == null) {
             this.password = preferences.getString("password", "");
         }
+
         if (this.ailment == null) {
             this.ailment = preferences.getString("ailment", "Eyesight");
         }
+        // new added for email and dob
+//        if (this.email == null){
+//            this.email = preferences.getString("email","");
+//        }
+//        if (this.date_of_birth == null){
+//            this.date_of_birth = preferences.getString("date_of_birth","");
+//        }
+//        end added for email and dob
 
         if (this.weight == 0) {
             this.weight = preferences.getFloat("weight", 0);
@@ -76,6 +87,7 @@ public class UserObject extends Application {
             this.isLoggedIn = preferences.getBoolean("isLoggedIn", false);
         }
     }
+
 
     public String getName() {
         return name;

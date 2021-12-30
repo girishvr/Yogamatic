@@ -33,11 +33,15 @@ import in.yoska.yogamatic.data.model.UserObject;
 
 public class LoginActivity extends AppCompatActivity {
 
+//    boolean isLoggedIn = true;
     private LoginViewModel loginViewModel;
     Button signUpButton;
     EditText usernameEditText;
     EditText passwordEditText;
     TextView signuplater;
+//    private boolean addition=false;
+//
+//    public static final String ADDITION = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
 //                startActivity(signUpIntent);
                 startActivity(signUpIntent,
                         ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle());
-
             }
         });
 
@@ -132,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         };
+
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -162,38 +166,38 @@ public class LoginActivity extends AppCompatActivity {
                     //  show credential failed toast
                     setResult(Activity.RESULT_CANCELED);
                     showLoginFailed(R.string.login_error);
-
                 }
-
             }
         });
 
 
-        String demo1 = "12";
+//        String demo1 = "demo";
 
 
         signuplater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent demo = new Intent(LoginActivity.this, AilmentListActivity.class);
-                demo.putExtra("demo1",demo1);
+//                demo.putExtra("demo1",demo1);
+//                demo.putExtra(ADDITION,addition);
                 startActivity(demo);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-
             }
 
         });
     }
 
-//    private static void setDashBoardUI(Intent demo) {
-//            FloatingActionButton fab = findViewById(R.id.fab);
-//            fab.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
+
+
+//    public void logout(View view){
+//        isLoggedIn = false;
+//        final UserObject userData = (UserObject) getApplicationContext();
+//        userData.setLoggedIn(isLoggedIn);
+//        userData.saveData(this);
+////        userData.clearData(this);
+////        showLoginSignUp();
+////        setDashBoardUI();
 //
-//
-//        }
+//    }
 
 
 

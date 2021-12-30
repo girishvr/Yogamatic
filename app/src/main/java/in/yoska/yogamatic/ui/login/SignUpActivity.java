@@ -59,7 +59,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void registrationComplete () {
         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+//        startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
     }
+
 
     public void setCurrentItem (int item, boolean smoothScroll) {
         viewPager.setCurrentItem(item, smoothScroll);
@@ -72,6 +74,8 @@ public class SignUpActivity extends AppCompatActivity {
     public void previous_fragment(View view) {
         viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
     }
+
+
 
     class AuthenticationPagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> fragmentList = new ArrayList<>();

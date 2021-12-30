@@ -98,6 +98,7 @@
         android:layout_marginTop="64dp"
         android:labelFor="@+id/signup"
         android:text="signup Later"
+        android:visibility="invisible"
         android:textColor="@color/black"
         android:padding="10dp"
         android:textSize="15sp"

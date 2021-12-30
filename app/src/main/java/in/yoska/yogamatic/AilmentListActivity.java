@@ -171,18 +171,19 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
 //
 //                    }
                     //       break;
-//                    case  R.id.nav_share:{
-//
-//                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-//                        sharingIntent.setType("text/plain");
+                    case  R.id.nav_share:{
+
+                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        sharingIntent.setType("text/plain");
 //                        String shareBody =  "http://play.google.com/store/apps/detail?id=" + getPackageName();
-//                        String shareSub = "Try now";
-//                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
-//                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-//                        startActivity(Intent.createChooser(sharingIntent, "Share using"));
-//
-//                    }
-//                    break;
+                        String shareBody =  "This Application Under " + " Kawazah Smart Solution";
+                        String shareSub = "Try now";
+                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+                    }
+                    break;
                 }
                 return false;
             }

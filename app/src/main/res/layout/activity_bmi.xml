@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#68B9F6CA"
     android:layout_height="match_parent"
     tools:context=".bmiActivity">
 
 
     <ImageView
+        android:id="@+id/bmipic"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/ic_bmi"
+        android:src="@drawable/bmireport"
         android:layout_marginBottom="100dp"/>
     <TextView
         android:id="@+id/bmiindicator"
@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Calender"
         android:layout_margin="20dp"
+        android:visibility="invisible"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="25sp"

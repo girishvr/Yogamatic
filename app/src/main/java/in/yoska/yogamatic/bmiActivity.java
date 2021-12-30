@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -16,7 +18,7 @@ import in.yoska.yogamatic.data.model.YogData;
 public class bmiActivity extends AppCompatActivity {
 
     TextView bmiIndi,bmiCal;
-    
+    ImageView bmipic;
 
 
     @Override
@@ -25,6 +27,7 @@ public class bmiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bmi);
 
         bmiIndi = (TextView) findViewById(R.id.bmiindicator);
+        bmipic = findViewById(R.id.bmipic);
 
         bmiCal = (TextView) findViewById(R.id.bmicalender);
         float weight = Float.parseFloat(String.valueOf(getUserWeight()));
@@ -36,6 +39,21 @@ public class bmiActivity extends AppCompatActivity {
         bmiCal.setText((interpreteBMI(bmiValue)));
         
 
+        if (interpreteBMI(bmiValue).equals("Underweight")){
+            bmipic.setImageResource(R.drawable.underweight);
+        }else if (interpreteBMI(bmiValue).equals("Servely Underweight")){
+            bmipic.setImageResource(R.drawable.underweight);
+        }else if (interpreteBMI(bmiValue).equals("Normal")){
+            bmipic.setImageResource(R.drawable.healthyweight);
+        }else if (interpreteBMI(bmiValue).equals("OverWeight")){
+            bmipic.setImageResource(R.drawable.overweight);
+        }else if (interpreteBMI(bmiValue).equals("obese type1")){
+            bmipic.setImageResource(R.drawable.obesetype1);
+        }else if (interpreteBMI(bmiValue).equals("obese type2")){
+            bmipic.setImageResource(R.drawable.obesetype2);
+        }else {
+            bmipic.setImageResource(R.drawable.obesetype3);
+        }
 
 
         // read data from the excel sheet
@@ -89,8 +107,12 @@ public class bmiActivity extends AppCompatActivity {
             return  "Normal";
         } else if (bmiValue < 30){
             return "OverWeight";
-        }else{
-            return "obese";
+        }else if (bmiValue < 35){
+            return "obese type1";
+        } else if (bmiValue < 40){
+            return "obese type2";
+        } else {
+            return "obese type3";
         }
     }
 

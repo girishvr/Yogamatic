@@ -53,5 +53,6 @@
 
     <string name="next">Next</string>
     <string name="enter">Enter Valid Email</string>
+    <string name="hyperlink"> Please contact <a href = "https://email=yogaomatic3@gmail.com">Yogaomatic</a> </string>
 
 </resources>

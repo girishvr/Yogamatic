@@ -123,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:labelFor="@+id/button_asana"
-                    android:text="YogAasan"
+                    android:text="Yogasanas"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"

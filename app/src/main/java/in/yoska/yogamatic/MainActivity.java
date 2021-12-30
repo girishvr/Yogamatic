@@ -34,16 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
         //get data from the preferance
         getUserData();
-        String user1 = getIntent().getStringExtra("demo1");
 
-//      final   float num = Float.parseFloat(String.valueOf(user1));
-//
-//
-//        if ((num) == 12){
-//            isLoggedIn = false;
-//            setDashBoardUI();
-//        }
 
+
+//        Intent demo = getIntent();
+//        Bundle b = demo.getExtras();
+//        boolean addition = b.getBoolean("ADDITION");
 
 
 
@@ -53,16 +49,16 @@ public class MainActivity extends AppCompatActivity {
         //check log in and then load the respective views
         if (isLoggedIn){
             setDashBoardUI();
-//            showLoginSignUp();
         }
-        else if (isLoggedIn = true){
-//            isLoggedIn = true;
+//        else if (addition = false){
+//            isLoggedIn = false;
+//            setDashBoardUI();
+//        }
+        else {
+            isLoggedIn = true;
+//            setDashBoardUI();
             showLoginSignUp();
-//
         }
-//        else if (user1.equals("demo")){
-//                setDashBoardUI();
-//            }
     }
 
 
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         userData.saveData(this);
 //        userData.clearData(this);
         showLoginSignUp();
-//        setDashBoardUI();
+        setDashBoardUI();
 
     }
 
@@ -134,10 +130,6 @@ public class MainActivity extends AppCompatActivity {
         return userData.getWeight();
     }
 
-    public float getUserHeight(){
-        final UserObject userData = (UserObject) getApplicationContext();
-        return userData.getHeight();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

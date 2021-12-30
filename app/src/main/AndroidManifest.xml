@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.yoska.yogamatic">
+    package="in.yoska.yogamatic" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,7 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/yogmatic_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Yogamatic">
+        android:theme="@style/Theme.Yogamatic" >
+        <activity
+            android:name=".EditProfile"
+            android:exported="false" />
         <activity
             android:name=".YTRecycler"
             android:exported="false" />
@@ -49,7 +52,7 @@
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Yogamatic.NoActionBar">
+            android:theme="@style/Theme.Yogamatic.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

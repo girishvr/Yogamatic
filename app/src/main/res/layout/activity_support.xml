@@ -10,9 +10,10 @@
     tools:context=".SupportActivity">
 
     <TextView
+        android:id="@+id/supportlink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Support Page"
+        android:text="Contact Us"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
