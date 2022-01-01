@@ -59,50 +59,50 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="7dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email : "
-                    android:textSize="25sp"
-                    />
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="User email"
-                    android:layout_gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:orientation="horizontal">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Email : "-->
+<!--                    android:textSize="25sp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/email"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="User email"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="7dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DOB : "
-                    android:textSize="25sp"
-                    />
-                <TextView
-                    android:id="@+id/dob"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="User date of birth"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    />
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:layout_marginStart="7dp"-->
+<!--                android:orientation="horizontal">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="DOB : "-->
+<!--                    android:textSize="25sp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/dob"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="User date of birth"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="25sp"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -179,5 +179,6 @@
                 android:text="edit profile" />
 
         </LinearLayout>
+
     </LinearLayout>
 

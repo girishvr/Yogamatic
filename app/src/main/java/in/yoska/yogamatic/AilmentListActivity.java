@@ -2,6 +2,7 @@ package in.yoska.yogamatic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import in.yoska.yogamatic.custom.ReadExcelSheet;
@@ -46,6 +48,7 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ailment_list);
 
+
         // read data from the excel sheet
         fetchExcelSheetData();
 
@@ -60,12 +63,14 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
         float bmiValue = BMICalculate(weight,height);
 
 
-        bmi.setText("Your BMI Is " +String.valueOf(bmiValue));
+        bmi.setText("Your BMI Is " +String.valueOf(new DecimalFormat("0.00").format(bmiValue)));
 
 //        bmi.setText(String.valueOf(BMI = Math.floor(BMI * 100 / 100)));
 
 
+        content();
         dashdisplay.setText("Hello, " + getUserName() );
+        bmi.setText("Your BMI Is " +String.valueOf(new DecimalFormat("0.00").format(bmiValue)));
 
 
         yogaasan = (ImageButton) findViewById(R.id.button_asana);
@@ -176,7 +181,7 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
                         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
 //                        String shareBody =  "http://play.google.com/store/apps/detail?id=" + getPackageName();
-                        String shareBody =  "This Application Under " + " Kawazah Smart Solution";
+                        String shareBody =  " " +" ";
                         String shareSub = "Try now";
                         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
                         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
@@ -189,6 +194,34 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
             }
         });
     }
+
+//    here start refresher data
+public void content(){
+
+
+
+
+
+    refresh(1000);
+}
+
+    private void refresh(int millisecond){
+        final Handler handler = new Handler();
+
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                content();
+            }
+        };
+
+        handler.postDelayed(runnable,millisecond);
+
+    }
+//    here end refresher data
+
+
+
 
     private void getUserData() {
 
@@ -250,8 +283,6 @@ public class AilmentListActivity<bmivali> extends AppCompatActivity {
     }
 
 //    here end drawer
-
-
 //        end drawer
 
 //    public void display(View view){

@@ -68,12 +68,12 @@ public class UserObject extends Application {
             this.ailment = preferences.getString("ailment", "Eyesight");
         }
         // new added for email and dob
-//        if (this.email == null){
-//            this.email = preferences.getString("email","");
-//        }
-//        if (this.date_of_birth == null){
-//            this.date_of_birth = preferences.getString("date_of_birth","");
-//        }
+        if (this.email == null){
+            this.email = preferences.getString("email","");
+        }
+        if (this.date_of_birth == null){
+            this.date_of_birth = preferences.getString("date_of_birth","");
+        }
 //        end added for email and dob
 
         if (this.weight == 0) {

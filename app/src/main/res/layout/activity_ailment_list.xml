@@ -10,6 +10,7 @@
     android:background="#F7FFFFFF"
     android:minWidth="19dp">
 
+
     <ScrollView
         android:layout_width="wrap_content"
         android:background="#F7FFFFFF"
@@ -39,6 +40,15 @@
                 android:background="#68B9F6CA"
                 tools:context=".AilmentListActivity">
 
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:id="@+id/fweight"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:id="@+id/fheight"/>-->
+
 
                 <TextView
                     android:id="@+id/textview_first"
@@ -60,6 +70,7 @@
                     android:text="your bmi"
                     android:textColor="@color/black"
                     android:textSize="20sp"
+                    android:visibility="invisible"
                     android:layout_marginLeft="35dp"
                     android:paddingLeft="10dp"
                     app:layout_constraintEnd_toEndOf="@+id/textview_first"

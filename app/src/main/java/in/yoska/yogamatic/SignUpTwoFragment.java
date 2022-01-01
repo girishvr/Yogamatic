@@ -94,10 +94,10 @@ public class SignUpTwoFragment extends Fragment implements View.OnClickListener 
 
         setDateTextField();
 
+
         return view;
 
     }
-
 
     private void setDateTextField() {
         etDob.setOnClickListener(this);

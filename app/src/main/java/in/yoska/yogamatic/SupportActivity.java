@@ -16,7 +16,7 @@ public class SupportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_support);
 
         supportLink = findViewById(R.id.supportlink);
-        supportLink.setText(Html.fromHtml("<a href=\"mailto:yogaomatic3@gmail.com\">Contact Us</a>"));
+        supportLink.setText(Html.fromHtml("<a style=\"color:black\" href=\"mailto:yogaomatic3@gmail.com\" >yogaomatic3@gmail.com</a>"));
         supportLink.setMovementMethod(LinkMovementMethod.getInstance());
 
     }

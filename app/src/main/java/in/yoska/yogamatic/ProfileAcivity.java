@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,18 +40,20 @@ public class ProfileAcivity extends AppCompatActivity {
         btn = findViewById(R.id.editbtn);
 
         username = findViewById(R.id.user);
-        useremail = findViewById(R.id.email);
-        dob = findViewById(R.id.dob);
+//        useremail = findViewById(R.id.email);
+//        dob = findViewById(R.id.dob);
         userweight = findViewById(R.id.weight);
         userheight = findViewById(R.id.height);
         userailment = findViewById(R.id.ailment);
 
         username.setText(getUserName());
-        useremail.setText(getUserEmail());
-        dob.setText(getUserDob());
-        userweight.setText(String.valueOf(getUserWeight()) );
-        userheight.setText(String.valueOf(getUserHeight()) );
+//        useremail.setText(getUserEmail());
+//        dob.setText(getUserDob());
+//        userweight.setText(String.valueOf(getUserWeight()) );
+//        userheight.setText(String.valueOf(getUserHeight()) );
         userailment.setText(getSelectedAilment());
+
+        content();
 
 
 
@@ -69,6 +72,33 @@ public class ProfileAcivity extends AppCompatActivity {
 
 
     }
+//    here refresh data start
+public void content(){
+    userweight.setText(String.valueOf(getUserWeight()) );
+    userheight.setText(String.valueOf(getUserHeight()) );
+
+    refresh(1000);
+}
+
+    private void refresh(int millisecond){
+        final Handler handler = new Handler();
+
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                content();
+            }
+        };
+
+        handler.postDelayed(runnable,millisecond);
+
+    }
+
+
+//    here refresh data end
+
+
+
 
     private void getUserData() {
         final UserObject userData = (UserObject) getApplicationContext();

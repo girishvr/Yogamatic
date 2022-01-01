@@ -59,6 +59,8 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +93,8 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
 
 
 
+
+
     public boolean getAllText(EditText etEmail){
         String pw1 = etPassword.getText().toString();
 
@@ -107,6 +111,8 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
             return false;
         }
 
+
+
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
 
@@ -122,6 +128,8 @@ public class SignUpOneFragment extends Fragment implements View.OnClickListener 
         }
         // Save the data
     }
+
+
 
     public void emailvalidation(boolean wrongEmail){
         Activity activity = getActivity();

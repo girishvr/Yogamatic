@@ -50,13 +50,8 @@ public class MainActivity extends AppCompatActivity {
         if (isLoggedIn){
             setDashBoardUI();
         }
-//        else if (addition = false){
-//            isLoggedIn = false;
-//            setDashBoardUI();
-//        }
         else {
             isLoggedIn = true;
-//            setDashBoardUI();
             showLoginSignUp();
         }
     }
@@ -98,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void didSelectAilment(String selectedAilment){
         //set global data first

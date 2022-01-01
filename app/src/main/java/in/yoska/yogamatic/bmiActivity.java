@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import in.yoska.yogamatic.custom.ReadExcelSheet;
@@ -34,7 +35,7 @@ public class bmiActivity extends AppCompatActivity {
         float height = Float.parseFloat(String.valueOf(getUserHeight()))/100;
         float bmiValue = BMICalculate(weight,height);
 
-        bmiIndi.setText("Your BMI Is " +String.valueOf(bmiValue));
+        bmiIndi.setText("Your BMI Is " +String.valueOf(new DecimalFormat("0.00").format(bmiValue)));
 
         bmiCal.setText((interpreteBMI(bmiValue)));
         

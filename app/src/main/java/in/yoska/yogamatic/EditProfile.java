@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,10 +21,11 @@ import in.yoska.yogamatic.data.model.UserObject;
 import in.yoska.yogamatic.data.model.YogData;
 
 public class EditProfile extends AppCompatActivity {
+//    boolean isLoggedIn = true;
 
-    EditText wtt,htt;
+    EditText wtt,htt,dtb;
 
-    TextView username,useremail,dob,userweight,userheight,userailment;
+    TextView username,useremail,userweight,userheight,userailment;
     Button bckbtn;
 
     @Override
@@ -31,7 +35,7 @@ public class EditProfile extends AppCompatActivity {
 
 
         // read data from the excel sheet
-        fetchExcelSheetData();
+//        fetchExcelSheetData();
 
 
         //get data from the preferance
@@ -42,18 +46,20 @@ public class EditProfile extends AppCompatActivity {
         bckbtn = findViewById(R.id.bckbtn);
 
         username = findViewById(R.id.user);
-        useremail = findViewById(R.id.email);
-        dob = findViewById(R.id.dob);
+//        useremail = findViewById(R.id.email);
+//        dtb = findViewById(R.id.dtb);
         userweight = findViewById(R.id.weight);
         userheight = findViewById(R.id.height);
         userailment = findViewById(R.id.ailment);
 
         username.setText(getUserName());
-        useremail.setText(getUserEmail());
-        dob.setText(getUserDob());
+//        useremail.setText(getUserEmail());
+//        dtb.setText(getUserDob());
         wtt.setText(String.valueOf(getUserWeight()));
         htt.setText(String.valueOf(getUserHeight()));
         userailment.setText(getSelectedAilment());
+
+
 
         bckbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,37 +67,43 @@ public class EditProfile extends AppCompatActivity {
                 float wt = Float.parseFloat(wtt.getText().toString());
                 float ht = Float.parseFloat(htt.getText().toString());
 //                String ail = (userailment.getText().toString());
+//                String db = (dtb.getText().toString());
+
 
                 final UserObject userData = (UserObject) getApplicationContext();
                 userData.setHeight(ht);
                 userData.setWeight(wt);
-//                userData.setAilment(ail);
+//                userData.setDate_of_birth(db);
 
 
-                Intent back = new Intent(EditProfile.this,AilmentListActivity.class);
+
+//                Intent back = new Intent(EditProfile.this,AilmentListActivity.class);
                 Toast.makeText(getApplicationContext(), "Your Profile Is updated", Toast.LENGTH_SHORT).show();
-                startActivity(back);
+//                startActivity(back);
 
 
             }
         });
 
     }
+
+
     private void getUserData() {
         final UserObject userData = (UserObject) getApplicationContext();
         userData.fetchData(this);
     }
 
-    private void fetchExcelSheetData() {
-        // working model
-        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
-        readExcelSheet.setFileName("yogmatic_data.xls");
-        try{
-            ArrayList<YogData> importedExcelData = readExcelSheet.readSheet(EditProfile.this);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+//    private void fetchExcelSheetData() {
+//        // working model
+//        ReadExcelSheet readExcelSheet = new ReadExcelSheet();
+//        readExcelSheet.setFileName("yogmatic_data.xls");
+//        try{
+//            ArrayList<YogData> importedExcelData = readExcelSheet.readSheet(EditProfile.this);
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
+
     public String getUserName(){
         final UserObject userData = (UserObject) getApplicationContext();
         return userData.getName();
