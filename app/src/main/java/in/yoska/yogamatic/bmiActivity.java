@@ -78,7 +78,7 @@ public class bmiActivity extends AppCompatActivity {
         readExcelSheet.setFileName("yogmatic_data.xls");
         try{
             ArrayList<YogData> importedExcelData = readExcelSheet.readSheet(bmiActivity.this);
-        }catch (IOException e){
+        }catch (IOException e){ 
             e.printStackTrace();
         }
     }
@@ -116,9 +116,6 @@ public class bmiActivity extends AppCompatActivity {
             return "obese type3";
         }
     }
-
-
-
 
 
 }
